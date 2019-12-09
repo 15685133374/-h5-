@@ -1,0 +1,128 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>work.html</title>
+  <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta content="email=no" name="format-detection">
+  <script src="/third-libs/vue.js"></script>
+  <script type="text/javascript" src="/third-libs/flexible.js"></script>
+  <link rel="stylesheet" href="/third-libs/animate.min.css">
+  <link rel="stylesheet" href="/third-libs/swiper.min.css">
+  <script src="/third-libs/swiper.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+  <!-- <script type="text/javascript" src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/flexible.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script> -->
+  <script>
+    
+    // function setDocFontSize(base) {
+    //   var width = 375,
+    //   domEle = document.documentElement;
+    //   dw = domEle.clientWidth || width,
+    //   iw = window.innerWidth || width,
+    //   sw = window.screen.width || iw,
+    //   saw = window.screen.availWidth || iw,
+    //   w = Math.min(dw, iw, sw, saw);
+    //   base = base || 750;
+    //   if (w > base) {
+    //       w = base;
+    //   }
+    //   if (window.devicePixelRatio) {
+    //       dpr = window.devicePixelRatio;
+    //   } else {
+    //       dpr = navigator.userAgent.match(/iphone/i) ? (w > 818 ? 3 : w > 480 ? 2 : 1) : 1;
+    //   }
+    //   dpr = Math.floor(dpr);
+    //   // domEle.style.fontSize = w / base * 100 + "px";
+    //   // domEle.body.style.fontSize = w / base * 100 + "px";
+    //   domEle.dataset.dpr = dpr;
+    // }
+    // setDocFontSize(320)
+  </script>
+  <script>window.__work = <%- JSON.stringify(work) %></script>
+  <script src="/engine-assets/engine.umd.js"></script>
+  <style>
+    * {
+      outline: none;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<!-- <body onload="setDocFontSize(320)"> -->
+<body>
+  <div id="app">
+    <!-- <button class="swiper-button-next" style="position: fixed;left: 1000px">Next</button>
+    <button class="swiper-button-prev" style="position: fixed;left: 1000px;margin:20px 0">Prev</button> -->
+    <engine />
+  </div>
+  <script>
+    // Vue.component('engine', window.Engine)
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+    });
+  </script>
+  <script>
+    // var mySwiper = new Swiper('.swiper-container', {
+    //   // Optional parameters
+    //   direction: 'vertical',
+    //   loop: false,
+    //   passiveListeners : false,
+    //   autoplayDisableOnInteraction : false,
+    //   // If we need pagination
+    //   pagination: {
+    //     el: '.swiper-pagination',
+    //     clickable:true,
+    //   },
+    //   pagination : '.swiper-pagination',
+    //   paginationClickable: true,
+    //   longSwipesRatio: 0.3,
+    //   touchRatio:1,
+    //   observer:true,//修改swiper自己或子元素时，自动初始化swiper
+    //   observeParents:true,//修改swiper的父元素时，自动初始化swiper
+    //   // Navigation arrows
+    //   // navigation: {
+    //   //   nextEl: '.swiper-button-next',
+    //   //   prevEl: '.swiper-button-prev',
+    //   // },
+    //   // And if we need scrollbar
+    //   scrollbar: {
+    //     el: '.swiper-scrollbar',
+    //   },
+    // });
+
+    // function displayMessage ({ origin, data }) {
+    //   if (['next', 'prev'].includes(data)  && origin === window.location.origin) {
+    //     document.querySelector(`.swiper-button-${data}`).click()
+    //   }
+    // }
+
+    // if (window.addEventListener) {
+    //   window.addEventListener("message", displayMessage, false);
+    // } else {
+    //   window.attachEvent("onmessage", displayMessage);
+    // }
+    // document.body.addEventListener('', function(event) {
+    //             event = event ? event : window.event;
+    //             if(event.preventDefault) {
+    //                 event.preventDefault()
+    //             } else {
+    //                 event.returnValue = false
+    //             }
+    //         }, { passive: false })
+
+  </script>
+  <!-- build:js scripts/vendor.js -->
+  <!-- endbuild -->
+</body>
+
+</html>
