@@ -29,6 +29,7 @@ export default {
     }
     return (
       <button
+        type="submit"
         style={style}
         onClick={this.handleClick}
       >{text}</button>)
@@ -49,18 +50,30 @@ export default {
   methods: {
     handleClick () {
       if (this.disabled) return
-
+      let val1 = document.querySelector('input').value;
+         document.querySelector('input').required ='true';
+        //  oninvalid="setCustomValidity('不能为空')" oninput="setCustomValidity('')"
+         document.querySelector('input').setAttribute("oninvalid","setCustomValidity('不能为空')")
+         let val2 = document.getElementsByTagName('input')[1].value;
+         if(val1 !='' &&val2 !=''){
       // #!zh: data-type=lbp-form-input 在 lbp-form-input 组件中定义
       let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
       if (!inputs.length) return
       const self = this
       let formData = new FormData()
+     
+      // console.log(document.getElementsByName('name').value)
+      if(document.getElementsByName('name').value == ''){
+        confirm("输入项不能为空")
+        return
+      }
       inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
       const req = new XMLHttpRequest()
       req.onreadystatechange = function () {
         if (req.readyState === 4) {
           const message = req.status === 200 ? '提交成功' : '提交失败'
-          self.$message.info(message)
+          // self.$message.info(message)
+          confirm(message)
         }
       }
 
@@ -70,6 +83,7 @@ export default {
       req.open('post', `/works/form/submit/${workId}`, true)
       req.send(formData)
     }
+  }
   },
   editorConfig: {
     components: {

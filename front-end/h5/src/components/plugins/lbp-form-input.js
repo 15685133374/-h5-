@@ -15,8 +15,12 @@ export default {
       padding: '0 5px'
     }
     return <input
+      class="int"
       disabled={this.disabled}
       type={this.type}
+      required
+      oninvalid="setCustomValidity('不能为空')"
+      oninput="setCustomValidity('')"
       style={style}
       name={this.name}
       placeholder={this.placeholder}

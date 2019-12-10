@@ -63,21 +63,21 @@ const fixedTools = [
     'icon': 'eye',
     'action': function () { this.previewVisible = true }
   },
-  {
-    i18nTooltip: 'editor.fixedTool.copyCurrentPage',
-    'tooltip': '复制当前页',
-    'text': '复制当前页',
-    'icon': 'copy',
-    'action': function () { this.pageManager({ type: 'copy' }) }
-  },
-  {
-    i18nTooltip: 'editor.fixedTool.importPSD',
-    'tooltip': '导入PSD',
-    'text': 'Ps',
-    'icon': '',
-    'action': '',
-    'disabled': true
-  },
+  // {
+  //   i18nTooltip: 'editor.fixedTool.copyCurrentPage',
+  //   'tooltip': '复制当前页',
+  //   'text': '复制当前页',
+  //   'icon': 'copy',
+  //   'action': function () { this.pageManager({ type: 'copy' }) }
+  // },
+  // {
+  //   i18nTooltip: 'editor.fixedTool.importPSD',
+  //   'tooltip': '导入PSD',
+  //   'text': 'Ps',
+  //   'icon': '',
+  //   'action': '',
+  //   'disabled': true
+  // },
   {
     i18nTooltip: 'editor.fixedTool.zoomOut',
     'tooltip': '放大画布',
@@ -92,13 +92,13 @@ const fixedTools = [
     'icon': 'minus',
     'action': function () { this.scaleRate -= 0.25 }
   },
-  {
-    i18nTooltip: 'editor.fixedTool.issues',
-    'tooltip': 'issues',
-    'text': '常见问题',
-    'icon': 'question',
-    'action': function () { window.open('https://github.com/ly525/luban-h5/issues/110') }
-  }
+  // {
+  //   i18nTooltip: 'editor.fixedTool.issues',
+  //   'tooltip': 'issues',
+  //   'text': '常见问题',
+  //   'icon': 'question',
+  //   'action': function () { window.open('https://github.com/ly525/luban-h5/issues/110') }
+  // }
 ]
 
 export default {
@@ -123,7 +123,12 @@ export default {
       pages: state => state.work.pages,
       work: state => state.work
     }),
-    ...mapState('loading', ['saveWork_loading', 'setWorkAsTemplate_loading', 'uploadWorkCover_loading'])
+    ...mapState('loading', [
+      'saveWork_loading',
+      'previewWork_loading',
+      'setWorkAsTemplate_loading',
+      'uploadWorkCover_loading'
+    ])
   },
   methods: {
     ...mapActions('editor', [
@@ -157,6 +162,14 @@ export default {
           tabBarGutter={10}
         >
           <a-tab-pane key="plugin-list" tab={this.$t('editor.sidebar.components')}>
+            <div class="plugin-usage-tip ">
+              <a-icon type="info-circle" />
+              {/* <span class="ml-1">使用提示: <strong>点击</strong>组件即可</span> */}
+              {/* Tip: just click on component */}
+              <i18n path="editor.tip.componentUsage" tag="span" class="ml-1">
+                <strong>{ this.$t('editor.tip.click') }</strong>{ this.$t('editor.tip.click') }
+              </i18n>
+            </div>
             <RenderShortcutsPanel pluginsList={this.pluginsList} handleClickShortcut={this.clone} />
           </a-tab-pane>
           <a-tab-pane key='page-manager' tab={this.$t('editor.sidebar.pages')}>
@@ -231,7 +244,7 @@ export default {
             style={{ lineHeight: '64px', float: 'right', background: 'transparent' }}
           >
             {/* 保存、预览、发布、设置为模板 */}
-            <a-menu-item key="1" class="transparent-bg"><a-button type="primary" size="small" onClick={() => { this.previewVisible = true }}>{this.$t('editor.header.preview')}</a-button></a-menu-item>
+            <a-menu-item key="1" class="transparent-bg"><a-button type="primary" size="small" onClick={() => { this.saveWork({ loadingName: 'previewWork_loading' }).then(() => { this.previewVisible = true }) }} loading={this.previewWork_loading}>{this.$t('editor.header.preview')}</a-button></a-menu-item>
             <a-menu-item key="2" class="transparent-bg"><a-button size="small" onClick={() => this.saveWork({ isSaveCover: true })} loading={this.saveWork_loading || this.uploadWorkCover_loading}>{this.$t('editor.header.save')}</a-button></a-menu-item>
             {/* <a-menu-item key="3" class="transparent-bg"><a-button size="small">发布</a-button></a-menu-item> */}
             <a-menu-item key="3" class="transparent-bg">
@@ -373,11 +386,10 @@ export default {
     // event bus for editor
     window.getEditorApp = this
     let workId = this.$route.params.workId
-    console.log(workId)
     if (workId) {
       this.fetchWork(workId)
     } else {
-      this.createWork()
+      this.$message.error('no work id!')
     }
   }
 }

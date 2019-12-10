@@ -1,4 +1,4 @@
-import placeholderImg from '@/assets/lbp-picture-placeholder.png'
+import placeholderImg from '@/assets/jiyun_logo.jpg'
 
 function getDefaultStyle (img, isPlaceholder) {
   return {

@@ -1,5 +1,5 @@
 // import placeholderImg from './lbp-picture-placeholder.png' // issue #34
-import placeholderImg from '@/assets/logo.png' // issue #34
+import placeholderImg from '@/assets/jiyun_logo.jpg' // issue #34
 export default {
   name: 'lbp-picture',
   render () {

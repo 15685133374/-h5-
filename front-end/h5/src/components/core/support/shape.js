@@ -42,6 +42,7 @@ export default {
       let cans = document.getElementsByClassName('edit-mode')[0].clientHeight;
       if(pos.top +pos.height> cans){
         document.getElementsByClassName('edit-mode')[0].style.height=pos.top + pos.height + 'px'
+        document.getElementsByClassName('canvas-wrapper')[0].style.height = pos.top + pos.height + 'px'
       }else if(pos.top + pos.height<= 566){
         document.getElementsByClassName('edit-mode')[0].style.height = 566 +'px';
       }

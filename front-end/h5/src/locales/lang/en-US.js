@@ -1,6 +1,6 @@
 export default {
   app: {
-    title: 'Luban H5'
+    title: '云建站'
   },
   header: {
     chineseDocument: '中文文档',
@@ -93,8 +93,12 @@ export default {
         title: 'Animation {index}'
       },
       common: {
-        empty: 'Select an element first please!'
+        empty: '请先选择组件'
       }
+    },
+    tip: {
+      componentUsage: 'Tip: just {0} on component',
+      click: 'click'
     }
   }
 }

@@ -10,6 +10,9 @@
     "timestamps": true,
     "comment": ""
   },
+  "user_id":{
+    "type":"text"
+  },
   "attributes": {
     "form": {
       "type": "json"

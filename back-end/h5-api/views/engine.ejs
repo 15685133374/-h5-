@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>work.html</title>
+  <title></title>
   <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
   <meta content="yes" name="apple-mobile-web-app-capable">
   <meta content="black" name="apple-mobile-web-app-status-bar-style">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/third-libs/animate.min.css">
   <link rel="stylesheet" href="/third-libs/swiper.min.css">
   <script src="/third-libs/swiper.min.js"></script>
+  <!-- <script src="https://www.layuicdn.com/layer-v3.1.1/layer.js"></script> -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <!-- <script type="text/javascript" src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/flexible.js"></script> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"> -->
@@ -43,7 +44,10 @@
     // }
     // setDocFontSize(320)
   </script>
-  <script>window.__work = <%- JSON.stringify(work) %></script>
+  <script>window.__work = <%- JSON.stringify(work) %>
+    // console.log(<%- JSON.stringify(work) %>.title)
+    document.getElementsByTagName('title')[0].innerHTML = <%- JSON.stringify(work) %>.title
+  </script>
   <script src="/engine-assets/engine.umd.js"></script>
   <style>
     * {
@@ -51,6 +55,10 @@
     }
     .swiper-container {
       width: 100%;
+      height: 100%;
+    }
+    .img{
+      width:100%!important;
       height: 100%;
     }
   </style>
@@ -72,6 +80,67 @@
     });
   </script>
   <script>
+
+    let imgBox = document.getElementsByTagName('img');
+    for(let i=0; i<imgBox.length;i++){
+      document.getElementsByTagName('img')[i].parentNode.style.width = '100%';
+      document.getElementsByTagName('img')[i].style.width = '100%'
+    }
+    let item = document.getElementsByClassName('van-swipe');
+    for(let i=0;i<item.length;i++){
+      document.getElementsByClassName('van-swipe')[i].style.width = '100%';
+      document.getElementsByClassName('van-swipe')[i].parentNode.style.width = '100%';
+      document.getElementsByClassName('van-swipe')[i].parentNode.style.left = 0
+    }
+
+    let contentBox= document.getElementsByClassName('swiper-slide')[0].children[0].children;
+    for(let i =0;i<contentBox.length;i++){
+      let curWidth = document.getElementsByClassName('swiper-slide')[0].children[0].children[i].clientWidth;
+      if(curWidth == 315){
+        document.getElementsByClassName('swiper-slide')[0].children[0].children[i].style.width = '100%';
+        document.getElementsByClassName('swiper-slide')[0].children[0].children[i].setAttribute("class","full");
+        document.getElementsByClassName('full')[0].children[0].style.width = '100%';
+      }
+     
+      // console.log('元素宽度',curWidth)
+    }
+
+    // const req = new XMLHttpRequest()
+    //   req.onreadystatechange = function () {
+    //     if (req.readyState === 4) {
+    //       const message = req.status === 200 ? '提交成功' : '提交失败'
+    //       self.$message.info(message)
+    //     }
+    //   }
+      
+      
+      document.getElementsByTagName('button')[0].onclick = function(){
+         let val1 = document.querySelector('input').value;
+         document.querySelector('input').required ='true';
+        //  oninvalid="setCustomValidity('不能为空')" oninput="setCustomValidity('')"
+         document.querySelector('input').setAttribute("oninvalid","setCustomValidity('不能为空')")
+         let val2 = document.getElementsByTagName('input')[1].value;
+         if(val1 !='' &&val2 !=''){
+          var req = new XMLHttpRequest();
+
+          req.onreadystatechange = function () {
+            if (req.readyState === 4) {
+              var message = req.status === 200 ? '提交成功' : '提交失败';
+              // self.$message.info(message);
+              confirm(message)
+            }
+          }; 
+         }else{
+           confirm("必填项不能为空")
+           return ;
+         }
+      }
+    // let slb = document.getElementsByClassName('full')[0].children;
+    // if(document.getElementsByClassName('full')[0].children.length){
+    //   for(let x =0; x<slb.length;x++){
+    //     document.getElementsByClassName('full')[0].children[x].style.width='100%'
+    //   }
+    // }
     // var mySwiper = new Swiper('.swiper-container', {
     //   // Optional parameters
     //   direction: 'vertical',

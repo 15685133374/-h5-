@@ -19,13 +19,11 @@ export const actions = {
   },
   createWork ({ commit }, payload) {
     strapi.createEntry('works', new Work()).then(entry => {
-      commit('setWork', entry)
-      router.replace({ name: 'editor', params: { workId: entry.id } })
-      // window.location = `${window.location.origin}/#/editor/${entry.id}`
+      const routeData = router.resolve({ name: 'editor', params: { workId: entry.id } })
+      window.open(routeData.href, '_blank')
+      // 如果希望不打开新 tab，可以注释上面面两行，启用下面一行的代码即可，不过不推荐。将编辑器单独起一个页面更有利于 vuex 的数据管理
+      // router.replace({ name: 'editor', params: { workId: entry.id } })
     })
-    // commit('createWork')
-    // commit('pageManager', { type: 'add' })
-    // commit('setEditingPage')
   },
   updateWork ({ commit, state }, payload = {}) {
     // update work with strapi
@@ -37,13 +35,16 @@ export const actions = {
   },
   /**
    * isSaveCover {Boolean} 保存作品时，是否保存封面图
+   * loadingName {String} saveWork_loading, previewWork_loading
+   * 预览作品之前需要先保存，但希望 用户点击保存按钮 和 点击预览按钮 loading_name 能够不同（虽然都调用了 saveWork）
+   * 因为 loading 效果要放在不同的按钮上
    */
-  saveWork ({ commit, dispatch, state }, { isSaveCover = false } = {}) {
+  saveWork ({ commit, dispatch, state }, { isSaveCover = false, loadingName = 'saveWork_loading' } = {}) {
     const fn = (callback) => {
       new AxiosWrapper({
         dispatch,
         commit,
-        loading_name: 'saveWork_loading',
+        loading_name: loadingName,
         successMsg: '保存作品成功',
         customRequest: strapi.updateEntry.bind(strapi)
       }).put('works', state.work.id, state.work).then(callback)
@@ -69,14 +70,20 @@ export const actions = {
     })
   },
   fetchWorks ({ commit, dispatch, state }, workId) {
-    new AxiosWrapper({
-      dispatch,
-      commit,
-      name: 'editor/setWorks',
-      loading_name: 'fetchWorks_loading',
-      successMsg: '获取作品列表成功',
-      customRequest: strapi.getEntries.bind(strapi)
-    }).get('works', { is_template: false })
+    // console.log('********',window.location.href.split('/')[3].split('#')[0])
+    if(window.location.href.split('/')[3].split('#')[0] != ''){
+      new AxiosWrapper({
+        dispatch,
+        commit,
+        name: 'editor/setWorks',
+        loading_name: 'fetchWorks_loading',
+        successMsg: '获取作品列表成功',
+        customRequest: strapi.getEntries.bind(strapi)
+      }).get('works', { is_template: false, 'user_id' : window.location.href.split('/')[3].split('#')[0] })
+    }else{
+      window.location.href = 'http://www.yuntvg.com'
+    }
+    
   },
   fetchWorkTemplates ({ commit, dispatch, state }, workId) {
     new AxiosWrapper({
@@ -248,9 +255,6 @@ export const mutations = {
     })
     state.work = work
   },
-  // createWork (state) {
-  //   state.work = new Work()
-  // },
   previewWork (state, { type, value }) {},
   deployWork (state, { type, value }) {},
   formDetailOfWork (state, { type, value }) {

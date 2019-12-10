@@ -55,7 +55,9 @@ export default {
       if (!inputs.length) return
       const self = this
       let formData = new FormData()
-      inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
+      let  user_id = window.location.href.split('/')[3].split('#')[0];
+      inputs.forEach(input => formData.append(input.dataset.uuid, input.value, user_id))
+        debugger;
       const req = new XMLHttpRequest()
       req.onreadystatechange = function () {
         if (req.readyState === 4) {
@@ -63,7 +65,8 @@ export default {
           self.$message.info(message)
         }
       }
-
+      debugger;
+      console.log('formData',formData)
       // #!zh: vuex.module.editor.setWork 中定义
       const workId = window.__work.id
       // TODO #!zh: 可以动态配置表单提交地址

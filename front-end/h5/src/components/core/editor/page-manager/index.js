@@ -96,12 +96,12 @@ export default {
             </span>
           ))
         }
-        <a-button
+        {/* <a-button
           icon="plus"
           type="dashed"
           class="footer-actions"
           onClick={() => { this.$emit('selectMenuItem', 'add') }}
-        >{addPageText}</a-button>
+        >{addPageText}</a-button> */}
       </div>
     )
   }

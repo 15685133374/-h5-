@@ -44,8 +44,9 @@ export default {
     // }
     return (
       <div style="width: 100%;height: 10%;position: fixed;bottom: 0px;left: 0px;"
-      ><ul style={style}
-        ><li ><i class="fa fa-wechat" aria-hidden="true"></i> <div>{text1}</div></li><li><i class="fa fa-phone" aria-hidden="true"></i><div>{text2}</div></li>
+      ><ul style={style}>
+        <li ><i class="fa fa-wechat" aria-hidden="true"></i> <p>{text1}</p></li>
+        <li><i class="fa fa-phone" aria-hidden="true"></i><p>{text2}</p></li>
         </ul></div>)
   },
   props: {
@@ -61,6 +62,5 @@ export default {
     borderRadius: commonProps.borderRadius,
     borderColor: commonProps.borderColor,
     textAlign: commonProps.textAlign()
-
   }
 }

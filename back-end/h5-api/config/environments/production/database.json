@@ -5,11 +5,11 @@
       "connector": "strapi-hook-bookshelf",
       "settings": {
         "client": "mysql",
-        "database": "strapi",
+        "database": "mms",
         "username": "root",
-        "password": "123456",
+        "password": "admin",
         "port": 3306,
-        "host": "localhost"
+        "host": "47.105.172.65"
       },
       "options": {}
     }

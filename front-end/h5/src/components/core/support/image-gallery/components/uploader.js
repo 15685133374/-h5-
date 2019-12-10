@@ -50,7 +50,7 @@ export default {
         onChange={this.handleChange}>
         <slot>
           <a-button>
-            <a-icon type="upload" /> Click to Upload
+            <a-icon type="upload" /> 点击上传
           </a-button>
         </slot>
       </a-upload>

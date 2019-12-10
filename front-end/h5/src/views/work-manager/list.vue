@@ -1,10 +1,8 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import QRCode from 'qrcode'
-
 import PreviewDialog from '@/components/core/editor/modals/preview.vue'
 import CardCover from '@/components/common/work/card-cover.js'
-
 const ListItemCard = {
   props: {
     work: {
@@ -78,7 +76,6 @@ const ListItemCard = {
     )
   }
 }
-
 const AddNewCard = {
   functional: true,
   render (h, { props, parent }) {
@@ -96,7 +93,6 @@ const AddNewCard = {
     )
   }
 }
-
 export default {
   components: {
     ListItemCard,
@@ -112,13 +108,11 @@ export default {
   },
   methods: {
     ...mapActions('editor', [
-      'fetchWorks'
+      'fetchWorks',
+      'createWork'
     ]),
     deleteWork (item) {
       // TODO delete work from work list
-    },
-    createWork () {
-      this.$router.push({ name: 'editor' })
     }
   },
   render (h) {

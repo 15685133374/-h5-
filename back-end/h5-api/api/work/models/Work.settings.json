@@ -35,6 +35,9 @@
     "is_template": {
       "type": "boolean"
     },
+    "user_id":{
+      "type":"text"
+    },
     "workforms": {
       "collection": "workform",
       "via": "work"

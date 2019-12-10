@@ -11,14 +11,19 @@ module.exports = {
   // strapi-hook-ejs: https://github.com/strapi/strapi/tree/master/packages/strapi-hook-ejs
   previewOne: async (ctx) => {
     const work = await strapi.services.work.findOne(ctx.params);
+    // console.log(work)
+    // console.log('___________********',JSON.stringify(work));
     return ctx.render('engine', { work });
   },
   submitForm: async (ctx) => {
+    console.log(ctx);
     const work = await strapi.services.work.findOne(ctx.params);
+    const user_id = ctx.request.header.referer.split('/')[3];
+    console.log(user_id);
     const formData = ctx.request.body.fields;
+    console.log(formData);
     // eslint-disable-next-line no-unused-vars
-    const workform = await strapi.services.workform.create({ form: formData, work });
-
+    const workform = await strapi.services.workform.create({ form: formData, work, user_id });
     // eslint-disable-next-line require-atomic-updates
     ctx.body = { message: 'success', status: 0 };
   },

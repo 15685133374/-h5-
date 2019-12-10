@@ -16,6 +16,7 @@ class Work {
     this.update_time = new Date()
     this.is_publish = false
     this.is_template = false
+    this.user_id =window.location.href.split('/')[3].split('#')[0]
   }
 }
 

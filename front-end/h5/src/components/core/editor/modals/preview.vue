@@ -65,6 +65,22 @@ export default {
       let iframeWin = document.getElementById('iframe-for-preview').contentWindow
       iframeWin.postMessage(message, window.location.origin)
     },
+    // 复制的方法
+    copyText(text, callback){ // text: 要复制的内容， callback: 回调
+        var tag = document.createElement('input');
+        tag.setAttribute('id', 'cp_hgz_input');
+        tag.value = text;
+        document.getElementsByTagName('body')[0].appendChild(tag);
+        document.getElementById('cp_hgz_input').select();
+        document.execCommand('copy');
+        document.getElementById('cp_hgz_input').remove();
+        if(callback) {callback(text)}
+    },
+
+// 点击按钮调用复制
+// document.getElementById('btn').onclick = function (){
+//     copyText( '123456', function (){console.log('复制成功')})
+// }
     openNewTab (urlType) {
       switch (urlType) {
         case 'previewDebug':
@@ -150,7 +166,7 @@ export default {
                   </div>
                 </div>
                 <div style="background: #fafafa;">
-                  <a-button type="link" icon="link" onClick={() => this.openNewTab('previewDebug')}>打开预览 URL(For Debug) </a-button>
+                  <a-button type="link" icon="link" onClick={() => this.copyText(this.releaseUrl,confirm('复制成功'))}>复制链接</a-button>
                   {/** 
                   <a-button type="link" icon="link" onClick={() => this.openNewTab('buildEngineDocs')}>如果本地预览显示空白，点此查看文档</a-button>
                    */}

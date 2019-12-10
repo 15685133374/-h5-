@@ -3,13 +3,14 @@ import { parsePx } from '../../../utils/element.js'
 // #! 编辑状态，不可以点击的按钮，因为点击按钮会触发一些默认行为，比如表单提交等
 const disabledPluginsForEditMode = ['lbp-form-input', 'lbp-form-button', 'lbp-video']
 const cloneObj = (value) => JSON.parse(JSON.stringify(value))
+// const scrW = document.getElementsByClassName('edit-mode')[0].clientWidth
 
 const defaultStyle = {
-  top: 40,
+  top: 0,
   bottom:100,
   left: 0,
   width: 315,
-  height: 80,
+  height: 100,
   zindex: 1,
   textAlign: 'center',
   color: '#000000',

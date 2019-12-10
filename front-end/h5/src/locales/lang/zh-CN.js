@@ -2,7 +2,7 @@
  * @Author: ly525
  * @Date: 2019-11-24 18:51:58
  * @LastEditors: ly525
- * @LastEditTime: 2019-11-30 19:39:09
+ * @LastEditTime: 2019-12-08 16:15:35
  * @FilePath: /luban-h5/front-end/h5/src/locales/lang/zh-CN.js
  * @Github: https://github.com/ly525/luban-h5
  * @Description: Do not edit
@@ -10,7 +10,7 @@
  */
 export default {
   app: {
-    title: '集云'
+    title: '云建站'
   },
   header: {
     chineseDocument: '中文文档',
@@ -102,8 +102,12 @@ export default {
         title: 'Animation {index}'
       },
       common: {
-        empty: 'Select an element first please!'
+        empty: '请先选择组件'
       }
+    },
+    tip: {
+      componentUsage: '使用提示: {0} 组件即可',
+      click: '点击'
     }
   }
 }

@@ -57,29 +57,29 @@ export const pluginsList = [
     name: LbpSlide.name
     // disabled: true
   },
-  {
-    i18nTitle: {
-      'en-US': 'Map',
-      'zh-CN': '地图'
-    },
-    title: '地图',
-    icon: 'map-o',
-    component: LbpFormRadioGroup,
-    visible: true,
-    name: LbpFormRadioGroup.name,
-    disabled: true
-  },
-  {
-    i18nTitle: {
-      'en-US': 'Video',
-      'zh-CN': '视频'
-    },
-    title: '视频',
-    icon: 'file-video-o',
-    component: LbpVideo,
-    visible: true,
-    name: LbpVideo.name
-  },
+  // {
+  //   i18nTitle: {
+  //     'en-US': 'Map',
+  //     'zh-CN': '地图'
+  //   },
+  //   title: '地图',
+  //   icon: 'map-o',
+  //   component: LbpFormRadioGroup,
+  //   visible: true,
+  //   name: LbpFormRadioGroup.name,
+  //   disabled: true
+  // },
+  // {
+  //   i18nTitle: {
+  //     'en-US': 'Video',
+  //     'zh-CN': '视频'
+  //   },
+  //   title: '视频',
+  //   icon: 'file-video-o',
+  //   component: LbpVideo,
+  //   visible: true,
+  //   name: LbpVideo.name
+  // },
   {
     i18nTitle: {
       'en-US': 'Form Input',

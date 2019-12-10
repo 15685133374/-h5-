@@ -33,21 +33,23 @@ export default {
       padding: '4px'
     }
     return (
-      <div><label for="name">{userName}</label><br></br><input disabled={this.disabled} type={this.type}
+      <div><label for="name">{userName}</label><br></br>
+      <input disabled={this.disabled} type={this.type}
         style={style}
         name={this.name}
         id="name"
         placeholder={this.placeholder1}
         autocomplete="off"
         data-type="lbp-form-input" // 点击[表单提交]按钮的时候,找到data-type为:lbp-form-input 的输入框，并将其值添加到formData,提交到后台
-      /><br></br><label for="phone">{phoneNum}</label><br></br><input disabled={this.disabled} type={this.type}
+      /><br></br><label for="phone">{phoneNum}</label><br></br>
+      <input disabled={this.disabled} type={this.type}
         style={style}
         name={this.name}
         id="phone"
         placeholder={this.placeholder2}
         autocomplete="off"
         data-type="lbp-form-input" // 点击[表单提交]按钮的时候,找到data-type为:lbp-form-input 的输入框，并将其值添加到formData,提交到后台
-    /><br></br><button style={styleBtn}  onClick={this.handleClick}>{btnName}</button>
+    /><br></br><button class="submit" style={styleBtn}  onClick={this.handleClick}>{btnName}</button>
       </div>
     )
   },
