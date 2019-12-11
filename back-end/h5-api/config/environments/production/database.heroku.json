@@ -9,7 +9,7 @@
         "port": "${process.env.DATABASE_PORT || 3306}",
         "database": "${process.env.DATABASE_NAME || 'strapi'}",
         "username": "${process.env.DATABASE_USERNAME || 'root'}",
-        "password": "${process.env.DATABASE_PASSWORD || '123456'}"
+        "password": "${process.env.DATABASE_PASSWORD || 'root'}"
       },
       "options": {}
     }

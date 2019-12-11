@@ -11,8 +11,8 @@
     "comment": ""
   },
   "user_id":{
-    "type":"text"
-  },
+			"type": "text"
+	},
   "attributes": {
     "form": {
       "type": "json"
