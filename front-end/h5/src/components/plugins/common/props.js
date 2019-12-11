@@ -134,6 +134,7 @@ export default {
       }
     }
   },
+  letterSpacing: {},
   lineHeight: {
     type: Number,
     default: 1,

@@ -99,6 +99,11 @@
       }
      
     }
+    let input=document.getElementsByTagName('input');
+    console.log('***',input.length)
+   for(let x =0;x<input.length;x++){
+     document.getElementsByTagName('input')[x].style.width = '100%'
+   }
     // let slb = document.getElementsByClassName('full')[0].children;
     // if(document.getElementsByClassName('full')[0].children.length){
     //   for(let x =0; x<slb.length;x++){
