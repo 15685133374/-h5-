@@ -44,7 +44,8 @@ module.exports = {
         changeOrigin: true,
         ws: false
       }
-    }
+    },
+    disableHostCheck: true, 
   },
   configureWebpack,
   css: {

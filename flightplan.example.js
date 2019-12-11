@@ -9,7 +9,7 @@ remote_nginx_conf_path = `${remote_project_dir}/deploy/api.luban-h5.conf`
 
 // production server config
 plan.target('production', {
-  host: 'your host ip', // your server ip
+  host: 'http://www.yuntvg.com', // your server ip
   username: 'centos', // your server username
   // 更新为绝对路径
   privateKey: `${os.homedir}/.ssh/id_rsa` // your privateKey to rsync files

@@ -27,6 +27,7 @@
     "proxy-agent": "^3.1.0",
     "qrcode": "^1.4.1",
     "register-service-worker": "^1.6.2",
+    "semver": "^6.3.0",
     "strapi-sdk-javascript": "^0.3.1",
     "stylus-loader": "^3.0.2",
     "v-click-outside": "^2.1.4",
