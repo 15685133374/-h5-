@@ -19,6 +19,10 @@ export const actions = {
   },
   createWork ({ commit }, payload) {
     strapi.createEntry('works', new Work()).then(entry => {
+			const preview_url = 'http://www.yuntvg.com:8080/works/preview/'+entry.id+'&'+window.location.href.split('/')[3].split('#')[0]
+			// console.log(preview_url)
+			sessionStorage.setItem('url',preview_url)
+			entry.preview_url = preview_url
       const routeData = router.resolve({ name: 'editor', params: { workId: entry.id } })
       window.open(routeData.href, '_blank')
       // 如果希望不打开新 tab，可以注释上面面两行，启用下面一行的代码即可，不过不推荐。将编辑器单独起一个页面更有利于 vuex 的数据管理

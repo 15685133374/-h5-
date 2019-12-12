@@ -15,8 +15,8 @@ export default {
 </script>
 <style lang="scss">
 $cellSize: 35.6px;
-$designerWidth: 320px;
-$designerHeight: 568px;
+$designerWidth: 400px;
+$designerHeight: 620px;
 $designerWidthHalf: $designerWidth / 2;
 
 .canvas-wrapper {

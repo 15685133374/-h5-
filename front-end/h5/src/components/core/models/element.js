@@ -9,7 +9,7 @@ const defaultStyle = {
   top: 0,
   bottom:100,
   left: 0,
-  width: 315,
+  width: 400,
   height: 100,
   zindex: 1,
   textAlign: 'center',

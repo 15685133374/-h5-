@@ -7,7 +7,7 @@
   },
   "options": {
     "increments": true,
-    "timestamps": false,
+    "timestamps": true,
     "comment": ""
   },
   "attributes": {
@@ -37,10 +37,13 @@
     },
 	"user_id":{
 			"type": "text"
-	},
-    "workforms": {
-      "collection": "workform",
-      "via": "work"
-    }
+  },
+  "preview_url":{
+    "type": "text"
+  },
+  "workforms": {
+    "collection": "workform",
+    "via": "work"
+  }
   }
 }

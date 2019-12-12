@@ -17,6 +17,7 @@ class Work {
     this.is_publish = false
     this.is_template = false
     this.user_id =window.location.href.split('/')[3].split('#')[0]
+    this.preview_url =sessionStorage.getItem('url')
   }
 }
 
