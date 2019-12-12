@@ -12,12 +12,12 @@ class Work {
     this.cover_image_url = ''
     // TODO 后期可以添加一个类似项目组的概念，每个项目组下可以有多个作品
     // this.project_id = 1
-    this.create_time = new Date()
+    this.create_time = new Date() 
     this.update_time = new Date()
     this.is_publish = false
     this.is_template = false
     this.user_id =window.location.href.split('/')[3].split('#')[0]
-    this.preview_url =sessionStorage.getItem('url')
+    this.preview_url =''
   }
 }
 
