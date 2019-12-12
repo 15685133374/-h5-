@@ -12,6 +12,7 @@ export default {
       borderRadius,
       borderWidth,
       text,
+      letterSpacing,
       disabled
     } = this
 
@@ -25,6 +26,7 @@ export default {
       borderRadius: borderRadius + 'px',
       borderWidth: borderWidth + 'px',
       textDecoration: 'none',
+      letterSpacing: letterSpacing +'px',
       disabled
     }
     return (
@@ -45,6 +47,7 @@ export default {
     borderWidth: commonProps.borderWidth,
     borderRadius: commonProps.borderRadius,
     borderColor: commonProps.borderColor,
+    letterSpacing: commonProps.letterSpacing,
     textAlign: commonProps.textAlign()
   },
   methods: {

@@ -134,7 +134,20 @@ export default {
       }
     }
   },
-  letterSpacing: {},
+  letterSpacing: {
+    type: Number,
+    default: 0,
+    editor: {
+      type: 'a-input-number',
+      label: '字间距',
+      require: true,
+      prop: {
+        step: 1,
+        min:0,
+        xax:99
+      }
+    }
+  },
   lineHeight: {
     type: Number,
     default: 1,
