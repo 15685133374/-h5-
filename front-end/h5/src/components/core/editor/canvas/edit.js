@@ -147,8 +147,8 @@ export default {
               }
               const data = {
                 style: {
-                  width: '100%',
-                  height: '100%'
+                  width: '100%'
+                  // height: '100%'
                 },
                 // 添加 class 的原因：与 handleClickCanvasProp 配合,
                 // 当点击编辑画布上的其它区域（clickEvent.target.classList 不包含下面的 className）的时候，设置 editingElement=null
@@ -177,7 +177,7 @@ export default {
                   style={element.getStyle({ position: 'absolute' })}
                   defaultPosition={element.commonStyle} // {top, left}
                   element={element}
-                  active={this.editingElement === element}
+                  active={this.editingElement == element}
                   handleMousedownProp={() => {
                     // 在 shape 上面添加 mousedown，而非 plugin 本身添加 onClick 的原因：
                     // 在 mousedown 的时候，即可激活 editingElement(当前选中元素)

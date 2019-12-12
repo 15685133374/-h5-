@@ -7,7 +7,8 @@ export default {
     const {
       userName,
       phoneNum,
-      btnName
+      btnName,
+      letterSpacing,
     } = this
     const style = {
       color: this.color,
@@ -30,10 +31,13 @@ export default {
       width: '100%',
       borderRadius: '2px',
       marginTop: '20px',
-      padding: '4px'
+      padding: '4px',
+      letterSpacing:letterSpacing +'px',
+      paddingLeft:letterSpacing + 4 +'px',
+      lineHeight: this.lineHeight + 'em',
     }
     return (
-      <div><label for="name">{userName}</label><br></br>
+      <p><label for="name">{userName}</label><br></br>
       <input disabled={this.disabled} type={this.type}
         style={style}
         name={this.name}
@@ -50,7 +54,7 @@ export default {
         autocomplete="off"
         data-type="lbp-form-input" // 点击[表单提交]按钮的时候,找到data-type为:lbp-form-input 的输入框，并将其值添加到formData,提交到后台
     /><br></br><button class="submit" style={styleBtn}  onClick={this.handleClick}>{btnName}</button>
-      </div>
+      </p>
     )
   },
   props: {
@@ -85,23 +89,37 @@ export default {
     borderWidth: commonProps.borderWidth,
     borderRadius: commonProps.borderRadius,
     lineHeight: commonProps.lineHeight,
+    letterSpacing:commonProps.letterSpacing,
     textAlign: commonProps.textAlign({ defaultValue: 'left' })
   },
   methods: {
     handleClick () {
       if (this.disabled) return
-
+      let val1 = document.querySelector('input').value;
+         document.querySelector('input').required ='true';
+        //  oninvalid="setCustomValidity('不能为空')" oninput="setCustomValidity('')"
+         document.querySelector('input').setAttribute("oninvalid","setCustomValidity('不能为空')")
+         let val2 = document.getElementsByTagName('input')[1].value;
+         if(val1 !='' &&val2 !=''){
       // #!zh: data-type=lbp-form-input 在 lbp-form-input 组件中定义
       let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
       if (!inputs.length) return
       const self = this
       let formData = new FormData()
+     
+      // console.log(document.getElementsByName('name').value)
+      if(document.getElementsByName('name').value == ''){
+        confirm("输入项不能为空")
+        return
+      }
       inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
+      console.log('____',inputs)
       const req = new XMLHttpRequest()
       req.onreadystatechange = function () {
         if (req.readyState === 4) {
           const message = req.status === 200 ? '提交成功' : '提交失败'
-          self.$message.info(message)
+          // self.$message.info(message)
+          confirm(message)
         }
       }
 
@@ -111,6 +129,7 @@ export default {
       req.open('post', `/works/form/submit/${workId}`, true)
       req.send(formData)
     }
+  }
   },
   editorConfig: {
     components: {
@@ -126,27 +145,16 @@ export default {
             }
           }
         },
-        render (h) {
-          return (
-            <a-select
-              placeholder="类型"
-              value={this.value}
-              onChange={(value) => {
-                this.$emit('input', value)
-                this.$emit('change', value)
-              }}
-            >
-              {
-                this.options.map(option => (
-                  <a-select-option
-                    key={option.value}
-                    value={option.value}
-                  >{option.label}</a-select-option>
-                ))
-              }
-            </a-select>
-          )
-        },
+        template: `
+          <a-select v-model="value_" placeholder="类型">
+            <a-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </a-option>
+          </a-select>
+        `,
         data: () => ({
           options: [
             {

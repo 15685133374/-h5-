@@ -27,6 +27,8 @@ export default {
       borderWidth: borderWidth + 'px',
       textDecoration: 'none',
       letterSpacing: letterSpacing +'px',
+      paddingLeft: letterSpacing+ 6 +'px',
+      height:'100%',
       disabled
     }
     return (
@@ -71,6 +73,7 @@ export default {
         return
       }
       inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
+      console.log('____',inputs)
       const req = new XMLHttpRequest()
       req.onreadystatechange = function () {
         if (req.readyState === 4) {

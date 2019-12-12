@@ -32,6 +32,7 @@ export const actions = {
       ...payload
     }
     commit('setWork', work)
+
   },
   /**
    * isSaveCover {Boolean} 保存作品时，是否保存封面图

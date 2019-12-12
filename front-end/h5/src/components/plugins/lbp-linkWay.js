@@ -1,4 +1,5 @@
 import commonProps from './common/props.js'
+import { Z_FIXED } from 'zlib'
 
 export default {
   name: 'lbp-linkWay',
@@ -30,9 +31,9 @@ export default {
       display: 'flex',
       justifyContent: 'space-around',
       position: 'fixed',
-      width: '100%',
       bottom: 0,
-      left: 0
+      left: 0,
+      height: 40,
     }
 
     // const style1 = {
@@ -43,11 +44,11 @@ export default {
     //   left: '0px'
     // }
     return (
-      <div style="width: 100%;height: 10%;position: fixed;bottom: 0px;left: 0px;"
-      ><ul style={style}>
+          <ul style={style}>
         <li ><i class="fa fa-wechat" aria-hidden="true"></i> <p>{text1}</p></li>
         <li><i class="fa fa-phone" aria-hidden="true"></i><p>{text2}</p></li>
-        </ul></div>)
+        </ul>
+        )
   },
   props: {
     // text: commonProps.text(),

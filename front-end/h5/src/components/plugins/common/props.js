@@ -1,5 +1,5 @@
 export default {
-  text: ({ defaultValue = '按钮', label = '按钮文字' } = {}) => ({
+  text: ({ defaultValue = '立即提交', label = '按钮文字' } = {}) => ({
     type: String,
     default: defaultValue,
     editor: {
@@ -167,7 +167,7 @@ export default {
     default: 0,
     editor: {
       type: 'a-input-number',
-      label: '边框宽度(px)',
+      label: '边框宽度',
       require: true,
       prop: {
         step: 1,

@@ -3,7 +3,7 @@ import placeholderImg from '@/assets/jiyun_logo.jpg' // issue #34
 export default {
   name: 'lbp-picture',
   render () {
-    return <img src={this.imgSrc || placeholderImg} alt="" srcset="" width="100%" />
+    return <img src={this.imgSrc || placeholderImg} alt="" srcset="" width="100%" height="100%"/>
   },
   props: {
     imgSrc: {

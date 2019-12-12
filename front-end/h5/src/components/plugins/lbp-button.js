@@ -11,6 +11,7 @@ export default {
       borderColor,
       borderRadius,
       borderWidth,
+      letterSpacing,
       text
     } = this
 
@@ -23,7 +24,10 @@ export default {
       borderColor,
       borderRadius: borderRadius + 'px',
       borderWidth: borderWidth + 'px',
-      textDecoration: 'none'
+      letterSpacing: letterSpacing + 'px',
+      paddingLeft: letterSpacing +6 + 'px',
+      textDecoration: 'none',
+      height:'100%'
     }
     return (
       <button
@@ -41,6 +45,7 @@ export default {
     borderWidth: commonProps.borderWidth,
     borderRadius: commonProps.borderRadius,
     borderColor: commonProps.borderColor,
+    letterSpacing: commonProps.letterSpacing,
     textAlign: commonProps.textAlign()
 
   }
