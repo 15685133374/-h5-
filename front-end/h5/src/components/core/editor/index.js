@@ -158,7 +158,7 @@ export default {
     _renderMenuContent () {
       return (
         <a-tabs
-          style="height: 100%;"
+          style=""
           tabBarGutter={10}
         >
           <a-tab-pane key="plugin-list" tab={this.$t('editor.sidebar.components')}>
@@ -292,7 +292,7 @@ export default {
               }
             </a-menu>
           </a-layout-sider> */}
-          <a-layout-sider width="240" theme='light' style={{ background: '#fff', padding: '12px' }}>
+          <a-layout-sider width="240" theme='light' style={{ background: '#fff', padding: '12px',overflowY:'scroll' }}>
             { this._renderMenuContent() }
           </a-layout-sider>
           <a-layout style="padding: 0 0 24px">
@@ -344,9 +344,9 @@ export default {
               }
             </a-button-group>
           </a-layout-sider>
-          <a-layout-sider width="300" theme='light' style={{ background: '#fff', padding: '0 12px' }}>
+          <a-layout-sider width="300" theme='light' style={{ background: '#fff', padding: '0 12px',overflowY:'scroll' }}>
             <a-tabs
-              style="height: 100%;"
+              style="height: auto"
               tabBarGutter={10}
               onChange={activeTabKey => {
                 this.activeTabKey = activeTabKey

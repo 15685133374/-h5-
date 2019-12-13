@@ -37,7 +37,7 @@ export default {
       lineHeight: this.lineHeight + 'em',
     }
     return (
-      <p class="input_group"><label for="name">{userName}</label><br></br>
+      <p><label for="name">{userName}</label><br></br>
       <input disabled={this.disabled} type={this.type}
         style={style}
         name={this.name}
@@ -103,7 +103,6 @@ export default {
          if(val1 !='' &&val2 !=''){
       // #!zh: data-type=lbp-form-input 在 lbp-form-input 组件中定义
       let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
-      let cur_uuid = document.getElementsByClassName('input_group')[0].getAttribute('data-uuid')
       if (!inputs.length) return
       const self = this
       let formData = new FormData()
@@ -113,9 +112,8 @@ export default {
         confirm("输入项不能为空")
         return
       }
-  
-      inputs.forEach(input => formData.append(cur_uuid, input.value))
-      // console.log('____',box)
+      inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
+      console.log('____',inputs)
       const req = new XMLHttpRequest()
       req.onreadystatechange = function () {
         if (req.readyState === 4) {

@@ -12,7 +12,7 @@ import LbpBackground from '../components/plugins/lbp-background'
 import LbpSlide from '../components/plugins/lbp-slide'
 import LbpWeixin from '../components/plugins/lbp-weixin'
 import LbpLinkway from '../components/plugins/lbp-linkWay'
-import LbpFormGroup from '../components/plugins/lbp-form-group'
+import LbpFormGroup from '../components/plugins/lbp-form-group.back'
 
 export const pluginsList = [
   {
@@ -102,7 +102,7 @@ export const pluginsList = [
     title: '表单组',
     icon: 'fa fa-list',
     component: LbpFormGroup,
-    visible: fasle,
+    visible: true,
     name: LbpFormGroup.name
   },
   {
