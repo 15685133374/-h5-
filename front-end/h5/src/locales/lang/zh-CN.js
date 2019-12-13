@@ -60,8 +60,8 @@ export default {
     },
     centerPanel: {
       mode: {
-        edit: 'Edit',
-        preview: 'Preview'
+        edit: '编辑',
+        preview: '预览'
       },
       contextMenu: {
         copy: '复制',
