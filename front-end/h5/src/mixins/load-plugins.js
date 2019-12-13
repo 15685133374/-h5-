@@ -102,7 +102,7 @@ export const pluginsList = [
     title: '表单组',
     icon: 'fa fa-list',
     component: LbpFormGroup,
-    visible: true,
+    visible: fasle,
     name: LbpFormGroup.name
   },
   {
