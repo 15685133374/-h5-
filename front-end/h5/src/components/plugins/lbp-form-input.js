@@ -12,6 +12,7 @@ export default {
       borderColor: this.borderColor,
       borderRadius: this.borderRadius + 'px',
       borderWidth: this.borderWidth + 'px',
+      height:'100%',
       padding: '0 5px'
     }
     return <input
