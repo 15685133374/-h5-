@@ -12,6 +12,7 @@
 import { Swipe, SwipeItem } from 'vant'
 import 'vant/lib/swipe/style'
 import 'vant/lib/swipe-item/style'
+import './styles/default_plugin.css'
 
 function getDefaultItems () {
   const defaultItems = [
@@ -74,7 +75,7 @@ export default {
         : <Swipe autoplay={+this.interval} indicator-color="red">
           {
             items.map(item => (
-              <SwipeItem><img src={item.image} width="100%" height="100%" /></SwipeItem>
+              <SwipeItem><img src={item.image} class="lbt" width="100%" height="100%" /></SwipeItem>
             ))
           }
         </Swipe>
