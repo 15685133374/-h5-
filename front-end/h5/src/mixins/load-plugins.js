@@ -12,7 +12,7 @@ import LbpBackground from '../components/plugins/lbp-background'
 import LbpSlide from '../components/plugins/lbp-slide'
 import LbpWeixin from '../components/plugins/lbp-weixin'
 import LbpLinkway from '../components/plugins/lbp-linkWay'
-import LbpFormGroup from '../components/plugins/lbp-form-group.back'
+import LbpFormGroup from '../components/plugins/lbp-form-group'
 
 export const pluginsList = [
   {
