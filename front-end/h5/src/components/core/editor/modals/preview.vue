@@ -22,7 +22,7 @@ export default {
     //   work: state => state.work
     // }),
     releaseUrl () {
-      return ` ${window.location.origin }/works/preview/${this.work.id } `
+      return ` ${window.location.origin }/works/preview/${this.work.id +'&'+ location.href.split('/')[3].split('#')[0]} `
     }
   },
   data () {

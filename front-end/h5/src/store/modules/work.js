@@ -165,7 +165,7 @@ export const actions = {
       commit,
       name: 'editor/formDetailOfWork',
       loading_name: 'queryFormsOfWork_loading',
-      successMsg: '表单查询完毕'
+      successMsg: '表单查询完毕',
     }).get(`/works/form/query/${workId}`)
   },
   setWorkAsTemplate ({ commit, state, dispatch }, workId) {

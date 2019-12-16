@@ -13,6 +13,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import ExportJsonExcel from "js-export-excel"
 export default {
   components: {
   },
@@ -32,6 +33,8 @@ export default {
         dataIndex: `uuid-${uuid}`
       }))
     },
+    
+
     /**
      * rows demo: [{"title":"姓名","key":"1565596393441"},{"title":"学校","key":"1565596397671"}]
      *
@@ -59,12 +62,57 @@ export default {
         return row
       })
       return rows.filter(row => Object.keys(row).length)
-    }
+    },
+ 
   },
   methods: {
     ...mapActions('editor', [
       'fetchFormsOfWork'
-    ])
+    ]),
+    downloadExcel(){
+      const datas = this.rows;//表格数据
+      const titles = this.columns;
+      let headers = new Array();//表头
+      let content = new Array();
+      titles.forEach(ele =>{
+        headers.push(ele.title)
+      })
+      console.log('原始数据',datas)
+      for(let d in datas){
+        if(d=='id'){
+          delete datas[d]
+        }
+      }
+        var option={};
+        console.log('data',datas);
+        let item = [];
+        // var json = {颜色: "1708480395608103", 蓝色: "1708742016288631"};
+        // var keyArr = Object.keys(json);
+        // var val = json[keyArr[0]];
+        if (datas) {
+          datas.forEach(data => {
+              delete data.id
+              let keyArr =Object.values(data);
+              console.log('keyArr',keyArr);
+             item.push(keyArr)
+              
+          });
+        }
+
+        console.log('数据',item)
+        option.fileName = '组织信息'
+        option.datas=[
+        {
+          sheetData:item,
+          sheetName:'sheet',
+          // sheetFilter:headers,
+          sheetHeader:headers,
+        }
+        ];
+
+        var toExcel = new ExportJsonExcel(option); 
+        toExcel.saveExcel();        
+      }
   },
   render (h) {
     return (
@@ -73,11 +121,15 @@ export default {
           action: function (props) {
             // 查看数据
             return [<router-link to={{ name: 'stat-detail', params: { id: props.id } }} >{this.$t('basicData.viewData')}</router-link>]
+            
           }
         }}>
+        
         </a-table>
+      <Button onClick={this.downloadExcel}>导出</Button>
       </div>
     )
+    
   },
   created () {
     const workId = this.$route.params.id

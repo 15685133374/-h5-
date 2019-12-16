@@ -16,7 +16,7 @@ module.exports = {
   submitForm: async (ctx) => {
     console.log(ctx);
     const work = await strapi.services.work.findOne(ctx.params);
-    const user_id = ctx.request.header.referer.split('/')[3];
+    const user_id = ctx.request.header.referer.split('&')[1];
     console.log(user_id);
     const formData = ctx.request.body.fields;
     console.log(formData);
