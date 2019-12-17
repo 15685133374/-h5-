@@ -14,6 +14,10 @@ import 'ant-design-vue/dist/antd.css'
 import 'font-awesome/css/font-awesome.min.css'
 import vClickOutside from 'v-click-outside'
 
+//引入layer插件
+import layer from 'vue-layer'
+import 'vue-layer/lib/vue-layer.css'
+
 Vue.config.productionTip = false
 Vue.use(Antd)
 Vue.use(vClickOutside)
@@ -26,6 +30,7 @@ Vue.use(vClickOutside)
  */
 Vue.component(Button.name, Button)
 Vue.component(ColorPicker.name, ColorPicker)
+Vue.prototype.$layer = layer(Vue)
 
 new Vue({
   router,

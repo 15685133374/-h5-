@@ -26,7 +26,8 @@ switch (process.env.PAGE) {
 const configureWebpack = {
   resolve: {
     alias: {
-      '@': path.join(__dirname, 'src')
+      '@': path.join(__dirname, 'src'),
+      'vue$':'vue/dist/vue.js'
     }
   }
 }

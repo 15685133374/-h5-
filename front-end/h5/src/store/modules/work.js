@@ -42,6 +42,7 @@ export const actions = {
    */
   saveWork ({ commit, dispatch, state }, { isSaveCover = false, loadingName = 'saveWork_loading' } = {}) {
     state.work.preview_url = 'http://www.yuntvg.com:8080/works/preview/'+state.work.id+'&'+window.location.href.split('/')[3].split('#')[0]
+    state.work.status= 0
     const fn = (callback) => {
 
       new AxiosWrapper({
@@ -82,7 +83,7 @@ export const actions = {
         loading_name: 'fetchWorks_loading',
         successMsg: '获取作品列表成功',
         customRequest: strapi.getEntries.bind(strapi)
-      }).get('works', { is_template: false, 'user_id' : window.location.href.split('/')[3].split('#')[0] })
+      }).get('works', { is_template: false, 'user_id' : window.location.href.split('/')[3].split('#')[0]})
     }else{
       window.location.href = 'http://www.yuntvg.com'
     }

@@ -184,7 +184,7 @@ export default {
       label: '圆角(px)',
       require: true,
       prop: {
-        step: 0.1,
+        step: 1,
         min: 0,
         max: 200
       }

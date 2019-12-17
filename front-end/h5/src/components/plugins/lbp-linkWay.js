@@ -30,10 +30,12 @@ export default {
       listStyle: 'none',
       display: 'flex',
       justifyContent: 'space-around',
-      position: 'fixed',
-      bottom: 0,
+      position: 'fixed!important',
+      bottom: '0px!important',
       left: 0,
       height: 40,
+      width:'100%',
+      zIndex:999
     }
 
     // const style1 = {
@@ -44,7 +46,7 @@ export default {
     //   left: '0px'
     // }
     return (
-          <ul style={style}>
+          <ul class='linkway' style={style}>
         <li ><i class="fa fa-wechat" aria-hidden="true"></i> <p>{text1}</p></li>
         <li><i class="fa fa-phone" aria-hidden="true"></i><p>{text2}</p></li>
         </ul>

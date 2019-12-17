@@ -38,6 +38,12 @@
 	"user_id":{
 			"type": "text"
   },
+  "review_reason":{
+    "type":"text"
+  },
+  "status":{
+    "type": "text"
+  },
   "preview_url":{
     "type": "text"
   },

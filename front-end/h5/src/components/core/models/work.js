@@ -18,6 +18,8 @@ class Work {
     this.is_template = false
     this.user_id =window.location.href.split('/')[3].split('#')[0]
     this.preview_url =''
+    this.status=0
+    this.review_reason = ''
   }
 }
 

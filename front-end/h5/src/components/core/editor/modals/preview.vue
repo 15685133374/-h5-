@@ -1,6 +1,8 @@
 <script>
 import { mapActions } from 'vuex'
 import QRCode from 'qrcode'
+import 'font-awesome/css/font-awesome.min.css'
+
 
 export default {
   props: {
@@ -166,7 +168,7 @@ export default {
                   </div>
                 </div>
                 <div style="background: #fafafa;">
-                  <a-button type="link" icon="link" onClick={() => this.copyText(this.releaseUrl,confirm('复制成功'))}>复制链接</a-button>
+                  <a-button type="link" icon="link" onClick={() => this.copyText(this.releaseUrl,this.$layer.msg("复制成功"))}>复制链接</a-button>
                   {/** 
                   <a-button type="link" icon="link" onClick={() => this.openNewTab('buildEngineDocs')}>如果本地预览显示空白，点此查看文档</a-button>
                    */}
@@ -275,6 +277,12 @@ export default {
       margin-top: 20px;
     }
   }
+}
+.linkway{
+ position: fixed!important;
+ width:100%!important;
+ top: auto!important;
+ height:auto!important;
 }
 
 </style>
