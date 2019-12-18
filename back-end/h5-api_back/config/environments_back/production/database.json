@@ -1,0 +1,17 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-hook-bookshelf",
+      "settings": {
+        "client": "mysql",
+        "database": "mms",
+        "username": "root",
+        "password": "admin",
+        "port": 3306,
+        "host": "47.105.172.65"
+      },
+      "options": {}
+    }
+  }
+}

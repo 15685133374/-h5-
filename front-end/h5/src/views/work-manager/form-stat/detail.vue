@@ -126,7 +126,7 @@ export default {
         }}>
         
         </a-table>
-      <Button onClick={this.downloadExcel}>导出</Button>
+      <Button v-show={this.rows.length >0} onClick={this.downloadExcel}>导出</Button>
       </div>
     )
     

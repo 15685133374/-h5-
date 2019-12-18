@@ -4,7 +4,7 @@
 }
 .edit-mode img{
     width:100%;
-    height:100%;
+    height:auto;
 }
 .linkway li i{
     vertical-align: middle;

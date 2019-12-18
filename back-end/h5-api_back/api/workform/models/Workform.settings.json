@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "workforms",
+  "info": {
+    "name": "workform",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "user_id":{
+    "type":"text"
+  },
+  "attributes": {
+    "form": {
+      "type": "json"
+    },
+    "work": {
+      "model": "work",
+      "via": "workforms"
+    }
+  }
+}

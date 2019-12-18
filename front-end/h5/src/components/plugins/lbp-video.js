@@ -1,13 +1,14 @@
 import playIcon from './play.svg'
 import './styles/video.scss'
 // 这里有个动画演示，可以用来学习 CSS：《CSS制作播放、暂停按钮》https://codepen.io/chriscoyier/full/lotjh
-
+//<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=k0027nolupz" allowFullScreen="true"></iframe>
 export default {
   name: 'lbp-video',
   props: {
     src: {
       type: String,
-      default: ``,
+      // default: `<iframe frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=k0027nolupz" allowFullScreen="true"></iframe>`,
+      default:'',
       editor: {
         type: 'a-input',
         label: '视频url',
@@ -35,18 +36,20 @@ export default {
   methods: {
     appendIframe () {
       if (this.src) {
-        this.$el.innerHTML = this.src
+        // this.$el.innerHTML = this.src
+        $('iframe').attr('src',this.src)
       }
     }
   },
   render (h) {
-    const style = this.disabled ? { 'pointer-events': 'none' } : { }
+    const style = this.disabled ? { 'pointer-events': 'none','height':'100%' } : {'height':'100%' }
     return (
       <div class="lbc-video" style={style}>
         {
-          this.disabled
-            ? <video playsinline="true" webkit-playsinline="" width="100%" height="100%" poster={playIcon}><source type="video/mp4" /></video>
-            : <div></div>
+          // this.disabled
+          //   ? <video playsinline="true" webkit-playsinline="" width="100%" height="100%" poster={playIcon}><source type="video/mp4" /></video>
+          //   : <div></div>
+          <iframe frameborder="0" src="" allowFullScreen="true"></iframe>
         }
       </div>
     )

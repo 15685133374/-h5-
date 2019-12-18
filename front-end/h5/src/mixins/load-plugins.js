@@ -80,7 +80,7 @@ export const pluginsList = [
     title: '视频',
     icon: 'file-video-o',
     component: LbpVideo,
-    visible: false,
+    visible: true,
     name: LbpVideo.name
   },
   {

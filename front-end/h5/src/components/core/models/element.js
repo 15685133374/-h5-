@@ -6,11 +6,11 @@ const cloneObj = (value) => JSON.parse(JSON.stringify(value))
 // const scrW = document.getElementsByClassName('edit-mode')[0].clientWidth
 
 const defaultStyle = {
-  top:0,
+  top:100,
   bottom:100,
   left: 0,
   width: 400,
-  height: 100,
+  height: 'auto',
   zindex: 1,
   textAlign: 'center',
   color: '#000000',

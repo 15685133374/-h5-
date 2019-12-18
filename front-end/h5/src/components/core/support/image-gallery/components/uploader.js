@@ -46,6 +46,7 @@ export default {
       <a-upload
         name="files"
         action="/upload"
+        // multiple="true"
         beforeUpload={this.handleBeforeUpload}
         onChange={this.handleChange}>
         <slot>
