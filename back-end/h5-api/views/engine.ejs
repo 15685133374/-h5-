@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>work.html</title>
+  <title></title>
   <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
   <meta content="yes" name="apple-mobile-web-app-capable">
   <meta content="black" name="apple-mobile-web-app-status-bar-style">
@@ -47,7 +47,11 @@
     // }
     // setDocFontSize(320)
   </script>
-  <script>window.__work = <%- JSON.stringify(work) %></script>
+  <script>
+    window.__work = <%- JSON.stringify(work) %>
+    // console.log('____',window.__work.title)
+    $('title').html(window.__work.title)
+  </script>
   <script src="/engine-assets/engine.umd.js"></script>
   <style>
     * {
@@ -128,6 +132,7 @@
    }
    $('.input_group').parent('div').css({'width':'100%','height':'auto'})
    $('.input_group').css({'width':'100%','height':'auto'})
+  //  $('img').css('height','auto')
     // let slb = document.getElementsByClassName('full')[0].children;
     // if(document.getElementsByClassName('full')[0].children.length){
     //   for(let x =0; x<slb.length;x++){
