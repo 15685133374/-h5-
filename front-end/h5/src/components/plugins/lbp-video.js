@@ -36,8 +36,7 @@ export default {
   methods: {
     appendIframe () {
       if (this.src) {
-        // this.$el.innerHTML = this.src
-        $('iframe').attr('src',this.src)
+        this.$el.innerHTML = this.src
       }
     }
   },
@@ -46,10 +45,8 @@ export default {
     return (
       <div class="lbc-video" style={style}>
         {
-          // this.disabled
-          //   ? <video playsinline="true" webkit-playsinline="" width="100%" height="100%" poster={playIcon}><source type="video/mp4" /></video>
-          //   : <div></div>
-          <iframe frameborder="0" src="" allowFullScreen="true"></iframe>
+          <video controls="controls" playsinline="true" webkit-playsinline="" width="100%" height="100%" poster={playIcon}><source src="" type="video/mp4" /></video>
+           
         }
       </div>
     )
