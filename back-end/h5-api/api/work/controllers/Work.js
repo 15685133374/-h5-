@@ -14,12 +14,12 @@ module.exports = {
     return ctx.render('engine', { work });
   },
   submitForm: async (ctx) => {
-    console.log(ctx);
+//     console.log(ctx);
     const work = await strapi.services.work.findOne(ctx.params);
     const user_id = ctx.request.header.referer.split('&')[1];
-    console.log(user_id);
+//     console.log(user_id);
     const formData = ctx.request.body.fields;
-    console.log(formData);
+//     console.log(formData);
     // eslint-disable-next-line no-unused-vars
     const workform = await strapi.services.workform.create({ form: formData, work, user_id });
     // eslint-disable-next-line require-atomic-updates

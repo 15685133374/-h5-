@@ -12,8 +12,17 @@ class Work {
     this.cover_image_url = ''
     // TODO 后期可以添加一个类似项目组的概念，每个项目组下可以有多个作品
     // this.project_id = 1
-    this.create_time = new Date() 
-    this.update_time = new Date()
+    let dat = new Date()
+    var formatDate = function (date) {  
+      var y = date.getFullYear();  
+      var m = date.getMonth() + 1;  
+      m = m < 10 ? '0' + m : m;  
+      var d = date.getDate();  
+      d = d < 10 ? ('0' + d) : d;  
+      return y + '-' + m + '-' + d;  
+  };  
+    this.create_time = formatDate(dat)
+    this.update_time = formatDate(dat)
     this.is_publish = false
     this.is_template = false
     this.user_id =window.location.href.split('/')[3].split('#')[0]

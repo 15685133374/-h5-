@@ -8,11 +8,14 @@
   <meta content="black" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
   <meta content="email=no" name="format-detection">
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
   <script src="/third-libs/vue.js"></script>
   <script type="text/javascript" src="/third-libs/flexible.js"></script>
   <link rel="stylesheet" href="/third-libs/animate.min.css">
   <link rel="stylesheet" href="/third-libs/swiper.min.css">
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/layer/3.0.1/layer.min.js"></script>
+  <link href="https://cdn.bootcss.com/layer/3.0.1/skin/default/layer.css" rel="stylesheet">
   <script src="/third-libs/swiper.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <!-- <script type="text/javascript" src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/flexible.js"></script> -->
@@ -69,6 +72,13 @@
       height: auto!important;
       z-index: 999;
     }
+    .linkway li i{
+      vertical-align: middle;
+      margin: 10px 0 0;
+    }
+    .linkway li p{
+      margin: 10px 0;
+    }
   </style>
 </head>
 <!-- <body onload="setDocFontSize(320)"> -->
@@ -85,10 +95,10 @@
       data: {
         message: 'Hello Vue!'
       },
+
     });
   </script>
   <script>
-
     let imgBox = document.getElementsByTagName('img');
     for(let i=0; i<imgBox.length;i++){
       document.getElementsByTagName('img')[i].parentNode.style.width = '100%';
@@ -116,6 +126,8 @@
    for(let x =0;x<input.length;x++){
      document.getElementsByTagName('input')[x].style.width = '100%'
    }
+   $('.input_group').parent('div').css({'width':'100%','height':'auto'})
+   $('.input_group').css({'width':'100%','height':'auto'})
     // let slb = document.getElementsByClassName('full')[0].children;
     // if(document.getElementsByClassName('full')[0].children.length){
     //   for(let x =0; x<slb.length;x++){

@@ -33,7 +33,7 @@ const ListItemCard = {
       return displayTime
     },
     genQRCodeUrl (work) {
-      const url = `/works/preview/${work.id}`
+      const url = `${window.location.origin }/works/preview/${this.work.id +'&'+ location.href.split('/')[3].split('#')[0]}`
       QRCode.toDataURL(url, (err, url) => {
         if (err) console.log(err)
         this.qrcodeUrl = url

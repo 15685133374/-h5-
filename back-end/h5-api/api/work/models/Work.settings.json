@@ -24,10 +24,10 @@
       "type": "json"
     },
     "create_time": {
-      "type": "text"
+      "type": "timestamps"
     },
     "update_time": {
-      "type": "text"
+      "type": "timestamps"
     },
     "is_publish": {
       "type": "boolean"

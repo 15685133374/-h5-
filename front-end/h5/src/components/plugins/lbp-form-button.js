@@ -69,7 +69,7 @@ export default {
      
       // console.log(document.getElementsByName('name').value)
       if(document.getElementsByName('name').value == ''){
-        confirm("输入项不能为空")
+        layer.msg("输入项不能为空")
         return
       }
       inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
@@ -79,7 +79,8 @@ export default {
         if (req.readyState === 4) {
           const message = req.status === 200 ? '提交成功' : '提交失败'
           // self.$message.info(message)
-          confirm(message)
+          // confirm(message)
+          layer.msg(message)
         }
       }
 
