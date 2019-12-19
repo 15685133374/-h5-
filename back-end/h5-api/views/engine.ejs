@@ -74,7 +74,7 @@
       width:100%!important;
       top:auto!important;
       height: auto!important;
-      left:0;
+      left:0!important;
       z-index: 999;
     }
     .linkway li i{
@@ -132,7 +132,11 @@
      document.getElementsByTagName('input')[x].style.width = '100%'
    }
    $('.linkway').parent('div').css('height','auto');
+   $('.flat').children('div').children('div').css({
+     'position':'static','top':'auto','bottom':'auto'
+   })
    $('.flat').children('div').children('div:first-child').hide();
+   $('.flat').children('div').children('div:last-child').css('padding','0 0 50px')
    $('.input_group').parent('div').css({'width':'100%','height':'auto'})
    $('.input_group').css({'width':'100%','height':'auto'})
    $('img').css('height','auto')
@@ -141,9 +145,6 @@
      'height':'auto',
      'top':'auto'
    })
-   let heig=$('img').length
-   console.log('有'+heig+'张图片')
-   $('img').eq(heig-1).css('padding','0 0 50px')
     // let slb = document.getElementsByClassName('full')[0].children;
     // if(document.getElementsByClassName('full')[0].children.length){
     //   for(let x =0; x<slb.length;x++){

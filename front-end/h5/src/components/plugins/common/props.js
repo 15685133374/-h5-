@@ -104,6 +104,30 @@ export default {
       require: true
     }
   },
+  backgroundColorInput: {
+    type: String,
+    default: '#ffffff',
+    editor: {
+      type: 'a-input', // lbs-color-picker
+      label: '输入框背景色',
+      prop: {
+        type: 'color'
+      },
+      require: true
+    }
+  },
+  backgroundColorBtn: {
+    type: String,
+    default: '#4E90FF',
+    editor: {
+      type: 'a-input', // lbs-color-picker
+      label: '按钮背景色',
+      prop: {
+        type: 'color'
+      },
+      require: true
+    }
+  },
   color: {
     type: String,
     // 注意，根据 MDN 文档，颜色选择器的 value 只能是：# + 6个16进制字符串

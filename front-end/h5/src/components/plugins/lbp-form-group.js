@@ -9,11 +9,13 @@ export default {
       phoneNum,
       btnName,
       letterSpacing,
+      backgroundColorBtn,
+      backgroundColorInput
     } = this
     const style = {
       color: this.color,
       textAlign: this.textAlign,
-      backgroundColor: this.backgroundColor,
+      backgroundColor: backgroundColorInput,
       fontSize: this.fontSize + 'px',
       lineHeight: this.lineHeight + 'em',
       borderColor: this.borderColor,
@@ -25,7 +27,7 @@ export default {
     }
     const styleBtn = {
       color: 'white',
-      backgroundColor: '#4E90FF',
+      backgroundColor: backgroundColorBtn,
       border: 'none',
       outline: 'none',
       width: '100%',
@@ -84,7 +86,8 @@ export default {
     placeholder2: commonProps.placeholder2('电话'),
     fontSize: commonProps.fontSize,
     color: commonProps.color,
-    backgroundColor: commonProps.backgroundColor,
+    backgroundColorInput: commonProps.backgroundColorInput,
+    backgroundColorBtn:commonProps.backgroundColorBtn,
     borderColor: commonProps.borderColor,
     borderWidth: commonProps.borderWidth,
     borderRadius: commonProps.borderRadius,

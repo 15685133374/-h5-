@@ -54,42 +54,38 @@ export default {
   },
   methods: {
     handleClick () {
-      if (this.disabled) return
-      let val1 = document.querySelector('input').value;
-         document.querySelector('input').required ='true';
-        //  oninvalid="setCustomValidity('不能为空')" oninput="setCustomValidity('')"
-         document.querySelector('input').setAttribute("oninvalid","setCustomValidity('不能为空')")
-         let val2 = document.getElementsByTagName('input')[1].value;
-         if(val1 !='' &&val2 !=''){
-      // #!zh: data-type=lbp-form-input 在 lbp-form-input 组件中定义
-      let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
-      if (!inputs.length) return
-      const self = this
-      let formData = new FormData()
-     
-      // console.log(document.getElementsByName('name').value)
-      if(document.getElementsByName('name').value == ''){
-        layer.msg("输入项不能为空")
-        return
-      }
-      inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
-      console.log('____',inputs)
-      const req = new XMLHttpRequest()
-      req.onreadystatechange = function () {
-        if (req.readyState === 4) {
-          const message = req.status === 200 ? '提交成功' : '提交失败'
-          // self.$message.info(message)
-          // confirm(message)
-          layer.msg(message)
-        }
-      }
-
-      // #!zh: vuex.module.editor.setWork 中定义
-      const workId = window.__work.id
-      // TODO #!zh: 可以动态配置表单提交地址
-      req.open('post', `/works/form/submit/${workId}`, true)
-      req.send(formData)
-    }
+      let input_num =$('.int').length;
+      let stat=1;
+       if($('.edit-mode').length >0){
+         //编辑状态点击无效
+         return 
+       }else{
+         for(let x=0;x<input_num;x++){
+           if($('.int').eq(x).val() == ''){
+            stat = 0;
+            break;
+           }
+         }
+         console.log('状态',stat)
+         if(stat == 1){
+          //  let cur_uuid = document.getElementsByClassName('input_group')[0].getAttribute('data-uuid')
+           let formData = new FormData()
+           let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
+           inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
+           const req = new XMLHttpRequest()
+           req.onreadystatechange = function () {
+             if (req.readyState === 4) {
+               const message = req.status === 200 ? '提交成功' : '提交失败'
+              layer.msg(message)
+             }
+           }
+           const workId = window.__work.id
+         req.open('post', `/works/form/submit/${workId}`, true)
+         req.send(formData)
+         }else{
+           layer.msg('必填项不能为空')
+         }
+       }
   }
   },
   editorConfig: {
