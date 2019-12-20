@@ -25,7 +25,6 @@ export default {
     loadCustomEditorForPlugin () {
       this.loadCustomEditorFlag = false
       if (!this.editingElement) return
-
       if (Vue.component(this.customEditorName)) {
         this.loadCustomEditorFlag = true
       } else {

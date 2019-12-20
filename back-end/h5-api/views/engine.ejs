@@ -48,8 +48,16 @@
     // setDocFontSize(320)
   </script>
   <script>
-    window.__work = <%- JSON.stringify(work) %>
-    // console.log('____',window.__work.title)
+     let wid = $(window).width();
+    var ss = <%- JSON.stringify(work) %>;
+    var wists;
+    for(var i = 0; i < ss.pages.length; i ++){
+      for(var j = 0; j < ss.pages[i].elements.length; j ++){
+        ss.pages[i].elements[j].commonStyle.width = wid
+      }
+
+    }
+    window.__work = ss
     $('title').html(window.__work.title)
   </script>
   <script src="/engine-assets/engine.umd.js"></script>
@@ -83,6 +91,9 @@
     }
     .linkway li p{
       margin: 10px 0;
+    }
+    .van-swipe__indicators{
+      bottom: auto;
     }
   </style>
 </head>
@@ -145,6 +156,22 @@
      'height':'auto',
      'top':'auto'
    })
+
+   //轮播图
+   let w = $(window).width();
+   console.log('当前屏幕款第',w)
+   $('.lbt').css('width',w)
+   $('.van-swipe-item').css('width',w)
+   let len= $('.van-swipe-item').length;
+   $('.van-swipe__track').css('width',w*len);
+   $('.van-swipe').css('width',w)
+ 
+
+
+
+
+   
+
     // let slb = document.getElementsByClassName('full')[0].children;
     // if(document.getElementsByClassName('full')[0].children.length){
     //   for(let x =0; x<slb.length;x++){

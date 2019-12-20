@@ -81,7 +81,7 @@ export default {
       downEvent.stopPropagation()
       downEvent.preventDefault() // Let's stop this event.
       const pos = { ...this.position }
-      console.log('pos',pos)
+      // console.log('pos',pos)
       let height = pos.height
       let width = pos.width
       let top = pos.top

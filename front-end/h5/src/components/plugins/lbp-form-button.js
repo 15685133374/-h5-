@@ -1,7 +1,7 @@
 import commonProps from './common/props.js'
 
 export default {
-  render () {
+  render() {
     const {
       color,
       textAlign,
@@ -26,9 +26,9 @@ export default {
       borderRadius: borderRadius + 'px',
       borderWidth: borderWidth + 'px',
       textDecoration: 'none',
-      letterSpacing: letterSpacing +'px',
-      paddingLeft: letterSpacing+ 6 +'px',
-      height:'100%',
+      letterSpacing: letterSpacing + 'px',
+      paddingLeft: letterSpacing + 6 + 'px',
+      height: '100%',
       disabled
     }
     return (
@@ -53,40 +53,43 @@ export default {
     textAlign: commonProps.textAlign()
   },
   methods: {
-    handleClick () {
-      let input_num =$('.int').length;
-      let stat=1;
-       if($('.edit-mode').length >0){
-         //编辑状态点击无效
-         return 
-       }else{
-         for(let x=0;x<input_num;x++){
-           if($('.int').eq(x).val() == ''){
+    handleClick() {
+      let input_num = $('.int').length;
+      let stat = 1;
+      if ($('.edit-mode').length > 0) {
+        //编辑状态点击无效
+        return
+      } else {
+        for (let x = 0; x < input_num; x++) {
+          if ($('.int').eq(x).val() == '') {
             stat = 0;
             break;
-           }
-         }
-         console.log('状态',stat)
-         if(stat == 1){
+          }
+        }
+        console.log('状态', stat)
+        if (stat == 1) {
           //  let cur_uuid = document.getElementsByClassName('input_group')[0].getAttribute('data-uuid')
-           let formData = new FormData()
-           let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
-           inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
-           const req = new XMLHttpRequest()
-           req.onreadystatechange = function () {
-             if (req.readyState === 4) {
-               const message = req.status === 200 ? '提交成功' : '提交失败'
+          let formData = new FormData()
+          for(let i=0;i<$('int').length;i++){
+            formData.append($('.int').eq(i).attr('data-uuid'),$('.int').eq(i).val())
+          }
+          // let inputs = $('.int');
+          // inputs.forEach(input => formData.append(input.dataset.uuid, input.value))
+          const req = new XMLHttpRequest()
+          req.onreadystatechange = function () {
+            if (req.readyState === 4) {
+              const message = req.status === 200 ? '提交成功' : '提交失败'
               layer.msg(message)
-             }
-           }
-           const workId = window.__work.id
-         req.open('post', `/works/form/submit/${workId}`, true)
-         req.send(formData)
-         }else{
-           layer.msg('必填项不能为空')
-         }
-       }
-  }
+            }
+          }
+          const workId = window.__work.id
+          req.open('post', `/works/form/submit/${workId}`, true)
+          req.send(formData)
+        } else {
+          layer.msg('必填项不能为空')
+        }
+      }
+    }
   },
   editorConfig: {
     components: {
@@ -94,10 +97,10 @@ export default {
         props: ['value'],
         computed: {
           value_: {
-            get () {
+            get() {
               return this.value
             },
-            set (val) {
+            set(val) {
               this.$emit('input', val)
             }
           }
