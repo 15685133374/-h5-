@@ -48,9 +48,22 @@
     // setDocFontSize(320)
   </script>
   <script>
-    window.__work = <%- JSON.stringify(work) %>
+   let wid = $(window).width();
+    var ss = <%- JSON.stringify(work) %>;
+    var wists;
+    console.log('***',ss)
+    console.log('***',ss.pages)
+    for(var i = 0; i < ss.pages.length; i ++){
+      for(var j = 0; j < ss.pages[i].elements.length; j ++){
+        ss.pages[i].elements[j].commonStyle.width = wid
+      }
+
+    }
+	console.log(ss)
+    window.__work = ss
     // console.log('____',window.__work.title)
     $('title').html(window.__work.title)
+
   </script>
   <script src="/engine-assets/engine.umd.js"></script>
   <style>
@@ -145,6 +158,12 @@
      'height':'auto',
      'top':'auto'
    })
+   $('.van-swipe__indicators').hide();
+   
+    let w = $(window).width();
+   console.log('当前屏幕款第',w)
+   $('.lbt').css('width',w)
+   $('.van-swipe-item').css('width',w)
     // let slb = document.getElementsByClassName('full')[0].children;
     // if(document.getElementsByClassName('full')[0].children.length){
     //   for(let x =0; x<slb.length;x++){
