@@ -38,6 +38,7 @@ const ListItemCard = {
   },
   render (h) {
     return (
+		
       <a-card hoverable >
         <CardCover slot="cover" qrcodeUrl={this.qrcodeUrl} coverImageUrl={this.work.cover_image_url} />
         <template class="ant-card-actions" slot="actions">
@@ -59,6 +60,7 @@ const ListItemCard = {
           {/**
           <a-icon type="setting" />
           <a-icon type="ellipsis" />
+					<div v-if={{this.work.status}} == '0'>{this.$t('workCard.createTime')}: 审核中</div>
            */}
         </template>
         <a-card-meta
@@ -69,7 +71,11 @@ const ListItemCard = {
           <div slot="description" style="font-size: 12px;">
             {/** 描述 时间 */}
             <div>{this.$t('workCard.description')}: {this.work.description}</div>
-            <div>{this.$t('workCard.createTime')}: {this.timeFmt(this.work.created_at)}</div>
+						 
+						<div class = "color">
+							审核状态: {this.work.status == 0 ? <span style="background: yellow">审核中</span>:this.work.status ==1?<span style="background: #5fb335">审核通过</span>:<span style="background: red">审核未通过</span> } 
+						</div>
+						
           </div>
         </a-card-meta>
       </a-card>
@@ -86,8 +92,8 @@ const AddNewCard = {
         </div>
         <template class="ant-card-actions" slot="actions">
           {/** 创建新作品 */}
-          {/** https://kazupon.github.io/vue-i18n/guide/component.html#translation-in-functional-component */}
-          <span onClick={props.handleCreate}>{parent.$t('workCard.createNewWork')}</span>
+          {/** */}
+          <span onClick={props.handleCreate} style="background: #a7ba9a">{parent.$t('workCard.createNewWork')}</span>
         </template>
       </a-card>
     )
@@ -151,4 +157,5 @@ export default {
     this.fetchWorks()
   }
 }
+
 </script>

@@ -4,11 +4,11 @@ function getDefaultStyle (img, isPlaceholder) {
   return {
     position: 'absolute',
     top: 0,
-    left: 0,
+    left: '13%',
     zIndex: 0,
     height: '100%',
     width: '100%',
-    backgroundSize: 'contain',
+    backgroundSize: '77%',
     backgroundRepeat: 'no-repeat',
     backgroundImage: `url(${img})`
   }
@@ -52,7 +52,7 @@ export default {
       covers = [this.getCover(coverImg), this.getCoverBg(coverImg)]
     }
 
-    return <div class="card-cover-wrapper" >
+    return <div class="card-cover-wrapper">
       {covers}
     </div>
   }
