@@ -21,7 +21,13 @@
   <!-- <script type="text/javascript" src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/flexible.js"></script> -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"> -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script> -->
-  <script>
+ 
+
+  <!-- <script>
+  !function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(normal,e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=normal?1:1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=normal?"50px": a/2*s*n+"px"},e.exports=t["default"]}]);  flex(false,100, 1);
+  </script> -->
+
+ <script>
     
     // function setDocFontSize(base) {
     //   var width = 375,
@@ -49,14 +55,25 @@
   </script>
   <script>
      let wid = $(window).width();
-    var ss = <%- JSON.stringify(work) %>;
+     let std = wid/400
+    let ss = <%- JSON.stringify(work) %>;
     var wists;
-    for(var i = 0; i < ss.pages.length; i ++){
-      for(var j = 0; j < ss.pages[i].elements.length; j ++){
-        ss.pages[i].elements[j].commonStyle.width = wid
-      }
-
+    let t = ss.pages[0].elements.length;
+    console.log('比例',std)
+    console.log('设备宽度',wid)
+    console.log('长度',t)
+    // console.log('___',ss)
+    for(i=0;i<t;i++){
+      // ss.pages[0].elements[i].commonStyle.width = ss.pages[0].elements[i].commonStyle.width>300 ? wid : ss.pages[0].elements[i].commonStyle.width;
+      ss.pages[0].elements[i].commonStyle.width = ss.pages[0].elements[i].commonStyle.width * std
+      ss.pages[0].elements[i].commonStyle.top = ss.pages[0].elements[i].commonStyle.top * std
+      ss.pages[0].elements[i].commonStyle.bottom = ss.pages[0].elements[i].commonStyle.bottom * std
+      ss.pages[0].elements[i].commonStyle.fontSize = ss.pages[0].elements[i].commonStyle.fontSize * std
+      ss.pages[0].elements[i].commonStyle.height = ss.pages[0].elements[i].commonStyle.height * std
+      ss.pages[0].elements[i].commonStyle.left = ss.pages[0].elements[i].commonStyle.left * std
+      
     }
+    console.log('****',ss)
     window.__work = ss
     $('title').html(window.__work.title)
   </script>
@@ -73,10 +90,10 @@
       width: 100%;
       height: 100%;
     }
-    .img{
+    /* .img{
       width:100%!important;
       height: 100%;
-    }
+    } */
     ul{
       position: fixed!important;
       width:100%!important;
@@ -94,6 +111,12 @@
     }
     .van-swipe__indicators{
       bottom: auto;
+    }
+    .flat div div:nth-of-type(1){
+      display:none;
+    }
+    .flat div div:nth-of-type(2){
+      top:0!important;
     }
   </style>
 </head>
@@ -115,56 +138,56 @@
     });
   </script>
   <script>
-    let imgBox = document.getElementsByTagName('img');
-    for(let i=0; i<imgBox.length;i++){
-      document.getElementsByTagName('img')[i].parentNode.style.width = '100%';
-      document.getElementsByTagName('img')[i].style.width = '100%'
-    }
-    let item = document.getElementsByClassName('van-swipe');
-    for(let i=0;i<item.length;i++){
-      document.getElementsByClassName('van-swipe')[i].style.width = '100%';
-      document.getElementsByClassName('van-swipe')[i].parentNode.style.width = '100%';
-      document.getElementsByClassName('van-swipe')[i].parentNode.style.left = 0
-    }
+  //   let imgBox = document.getElementsByTagName('img');
+  //   for(let i=0; i<imgBox.length;i++){
+  //     document.getElementsByTagName('img')[i].parentNode.style.width = '100%';
+  //     document.getElementsByTagName('img')[i].style.width = '100%'
+  //   }
+  //   let item = document.getElementsByClassName('van-swipe');
+  //   for(let i=0;i<item.length;i++){
+  //     document.getElementsByClassName('van-swipe')[i].style.width = '100%';
+  //     document.getElementsByClassName('van-swipe')[i].parentNode.style.width = '100%';
+  //     document.getElementsByClassName('van-swipe')[i].parentNode.style.left = 0
+  //   }
 
-    let contentBox= document.getElementsByClassName('swiper-slide')[0].children[0].children;
-    for(let i =0;i<contentBox.length;i++){
-      let curWidth = document.getElementsByClassName('swiper-slide')[0].children[0].children[i].clientWidth;
-      if(curWidth == 315){
-        document.getElementsByClassName('swiper-slide')[0].children[0].children[i].style.width = '100%';
-        document.getElementsByClassName('swiper-slide')[0].children[0].children[i].setAttribute("class","full");
-        document.getElementsByClassName('full')[0].children[0].style.width = '100%';
-      }
+  //   let contentBox= document.getElementsByClassName('swiper-slide')[0].children[0].children;
+  //   for(let i =0;i<contentBox.length;i++){
+  //     let curWidth = document.getElementsByClassName('swiper-slide')[0].children[0].children[i].clientWidth;
+  //     if(curWidth == 315){
+  //       document.getElementsByClassName('swiper-slide')[0].children[0].children[i].style.width = '100%';
+  //       document.getElementsByClassName('swiper-slide')[0].children[0].children[i].setAttribute("class","full");
+  //       document.getElementsByClassName('full')[0].children[0].style.width = '100%';
+  //     }
      
-    }
-    let input=document.getElementsByTagName('input');
-    console.log('***',input.length)
-   for(let x =0;x<input.length;x++){
-     document.getElementsByTagName('input')[x].style.width = '100%'
-   }
-   $('.linkway').parent('div').css('height','auto');
-   $('.flat').children('div').children('div').css({
-     'position':'static','top':'auto','bottom':'auto'
-   })
-   $('.flat').children('div').children('div:first-child').hide();
-   $('.flat').children('div').children('div:last-child').css('padding','0 0 50px')
-   $('.input_group').parent('div').css({'width':'100%','height':'auto'})
-   $('.input_group').css({'width':'100%','height':'auto'})
-   $('img').css('height','auto')
-   $('img').parent('div').css({
-     'position':'static',
-     'height':'auto',
-     'top':'auto'
-   })
+  //   }
+  //   let input=document.getElementsByTagName('input');
+  //   console.log('***',input.length)
+  //  for(let x =0;x<input.length;x++){
+  //    document.getElementsByTagName('input')[x].style.width = '100%'
+  //  }
+  //  $('.linkway').parent('div').css('height','auto');
+  //  $('.flat').children('div').children('div').css({
+  //    'position':'static','top':'auto','bottom':'auto'
+  //  })
+  //  $('.flat').children('div').children('div:first-child').hide();
+  //  $('.flat').children('div').children('div:last-child').css('padding','0 0 50px')
+  //  $('.input_group').parent('div').css({'width':'100%','height':'auto'})
+  //  $('.input_group').css({'width':'100%','height':'auto'})
+  //  $('img').css('height','auto')
+  //  $('img').parent('div').css({
+  //    'position':'static',
+  //    'height':'auto',
+  //    'top':'auto'
+  //  })
 
-   //轮播图
-   let w = $(window).width();
-   console.log('当前屏幕款第',w)
-   $('.lbt').css('width',w)
-   $('.van-swipe-item').css('width',w)
-   let len= $('.van-swipe-item').length;
-   $('.van-swipe__track').css('width',w*len);
-   $('.van-swipe').css('width',w)
+  //  //轮播图
+  //  let w = $(window).width();
+  //  console.log('当前屏幕款第',w)
+  //  $('.lbt').css('width',w)
+  //  $('.van-swipe-item').css('width',w)
+  //  let len= $('.van-swipe-item').length;
+  //  $('.van-swipe__track').css('width',w*len);
+  //  $('.van-swipe').css('width',w)
  
 
 
