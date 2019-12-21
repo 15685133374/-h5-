@@ -43,7 +43,7 @@ export default {
       <input disabled={this.disabled} type={this.type}
         style={style}
         name={this.name}
-        id="name"
+        class="name"
         placeholder={this.placeholder1}
         autocomplete="off"
         data-type="lbp-form-input" // 点击[表单提交]按钮的时候,找到data-type为:lbp-form-input 的输入框，并将其值添加到formData,提交到后台
@@ -51,7 +51,7 @@ export default {
       <input disabled={this.disabled} type={this.type}
         style={style}
         name={this.name}
-        id="phone"
+        class="phone"
         placeholder={this.placeholder2}
         autocomplete="off"
         data-type="lbp-form-input" // 点击[表单提交]按钮的时候,找到data-type为:lbp-form-input 的输入框，并将其值添加到formData,提交到后台
@@ -86,7 +86,7 @@ export default {
     placeholder2: commonProps.placeholder2('电话'),
     fontSize: commonProps.fontSize,
     color: commonProps.color,
-    backgroundColorInput: commonProps.backgroundColorInput,
+    backgroundColor: commonProps.backgroundColor,
     backgroundColorBtn:commonProps.backgroundColorBtn,
     borderColor: commonProps.borderColor,
     borderWidth: commonProps.borderWidth,
@@ -97,42 +97,50 @@ export default {
   },
   methods: {
     handleClick () {
-      // if (this.disabled) return
-      let val1 = $('#name').val()
-      let val2 =$('#phone').val()
-
-      if($('.edit-mode').length>0){
-        //编辑状态点击无效
-        return 
-      }else{
-        if(val1 && val2){
-          let cur_uuid = document.getElementsByClassName('input_group')[0].getAttribute('data-uuid')
-          let formData = new FormData()
-          let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
-          inputs.forEach(input => formData.append(cur_uuid, input.value))
-          const req = new XMLHttpRequest()
-          req.onreadystatechange = function () {
-            if (req.readyState === 4) {
-              const message = req.status === 200 ? '提交成功' : '提交失败'
-              // self.$message.info(message)
-              // confirm(message)
-             layer.msg(message)
-            }
-          }
-          const workId = window.__work.id
-        // TODO #!zh: 可以动态配置表单提交地址
-        req.open('post', `/works/form/submit/${workId}`, true)
-        req.send(formData)
-        }else{
-          layer.msg('必填项不能为空')
-        }
-      }
-     
-      // #!zh: data-type=lbp-form-input 在 lbp-form-input 组件中定义
-      // let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
-      
-     
-      // #!zh: vuex.module.editor.setWork 中定义
+       // if (this.disabled) return
+       let uuid = Object.values($(this)[0].$attrs)[0];
+       let val1,val2;
+       for(let i=0;i<$('.input_group').length;i++){
+         if($('.input_group').eq(i).attr('data-uuid') == uuid){
+           val1 =$('.input_group').eq(i).find('.name').val()
+           val2 =$('.input_group').eq(i).find('.phone').val()
+         }
+       }
+ 
+       if ($('.edit-mode').length > 0) {
+         //编辑状态点击无效
+         return;
+       } else {
+         if (val1 && val2) {
+           var datas=[val1,val2];
+           var cur_uuid = document.getElementsByClassName('input_group')[0].getAttribute('data-uuid');
+           var formData = new FormData();
+           // var inputs = document.querySelectorAll("[data-type^='lbp-form-input']");
+           // inputs.forEach(function (input) {
+           //   return formData.append(cur_uuid, input.value);
+           // });
+           formData.append( uuid, datas);
+           var req = new XMLHttpRequest();
+ 
+           req.onreadystatechange = function () {
+             if (req.readyState === 4) {
+               var message = req.status === 200 ? '提交成功' : '提交失败'; // self.$message.info(message)
+               // confirm(message)
+ 
+               layer.msg(message);
+             }
+           };
+ 
+           var workId = window.__work.id; // TODO #!zh: 可以动态配置表单提交地址
+ 
+           req.open('post', "/works/form/submit/".concat(workId), true);
+           req.send(formData);
+         } else {
+           layer.msg('必填项不能为空');
+         }
+       } // #!zh: data-type=lbp-form-input 在 lbp-form-input 组件中定义
+       // let inputs = document.querySelectorAll("[data-type^='lbp-form-input']")
+       // #!zh: vuex.module.editor.setWork 中定义
       
     }
   },

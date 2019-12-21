@@ -11,7 +11,9 @@ module.exports = {
   // strapi-hook-ejs: https://github.com/strapi/strapi/tree/master/packages/strapi-hook-ejs
   previewOne: async (ctx) => {
     const work = await strapi.services.work.findOne(ctx.params);
+    console.log('000000',work)
     return ctx.render('engine', { work });
+
   },
   submitForm: async (ctx) => {
 //     console.log(ctx);

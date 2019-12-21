@@ -10,7 +10,7 @@ const defaultStyle = {
   bottom:100,
   left: 0,
   width: 400,
-  height: 'auto',
+  height: 300,
   zindex: 1,
   textAlign: 'center',
   color: '#000000',

@@ -8,7 +8,7 @@ function getDefaultStyle (img, isPlaceholder) {
     zIndex: 0,
     height: '100%',
     width: '100%',
-    backgroundSize: isPlaceholder ? 'contain' : 'cover',
+    backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundImage: `url(${img})`
   }
