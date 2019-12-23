@@ -70,7 +70,7 @@ export default {
         if (stat == 1) {
           //  let cur_uuid = document.getElementsByClassName('input_group')[0].getAttribute('data-uuid')
           let formData = new FormData()
-          for(let i=0;i<$('int').length;i++){
+          for(let i=0;i<$('.int').length;i++){
             formData.append($('.int').eq(i).attr('data-uuid'),$('.int').eq(i).val())
           }
           // let inputs = $('.int');
