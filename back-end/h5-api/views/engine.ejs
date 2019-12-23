@@ -54,30 +54,11 @@
     // setDocFontSize(320)
   </script>
   <script>
-<<<<<<< HEAD
-   let wid = $(window).width();
-    var ss = <%- JSON.stringify(work) %>;
-    var wists;
-    console.log('***',ss)
-    console.log('***',ss.pages)
-    for(var i = 0; i < ss.pages.length; i ++){
-      for(var j = 0; j < ss.pages[i].elements.length; j ++){
-        ss.pages[i].elements[j].commonStyle.width = wid
-      }
-
-    }
-	console.log(ss)
-    window.__work = ss
-    // console.log('____',window.__work.title)
-=======
      let wid = $(window).width();
      let std = wid/400
     let ss = <%- JSON.stringify(work) %>;
     var wists;
     let t = ss.pages[0].elements.length;
-    console.log('比例',std)
-    console.log('设备宽度',wid)
-    console.log('长度',t)
     // console.log('___',ss)
     for(i=0;i<t;i++){
       // ss.pages[0].elements[i].commonStyle.width = ss.pages[0].elements[i].commonStyle.width>300 ? wid : ss.pages[0].elements[i].commonStyle.width;
@@ -89,9 +70,8 @@
       ss.pages[0].elements[i].commonStyle.left = ss.pages[0].elements[i].commonStyle.left * std
       
     }
-    console.log('****',ss)
     window.__work = ss
->>>>>>> a2be01bb519088a8d305754f355c2f282133095a
+
     $('title').html(window.__work.title)
 
   </script>
@@ -177,34 +157,31 @@
   //       document.getElementsByClassName('full')[0].children[0].style.width = '100%';
   //     }
      
-<<<<<<< HEAD
-    }
-    let input=document.getElementsByTagName('input');
-    console.log('***',input.length)
-   for(let x =0;x<input.length;x++){
-     document.getElementsByTagName('input')[x].style.width = '100%'
-   }
-   $('.linkway').parent('div').css('height','auto');
-   $('.flat').children('div').children('div').css({
-     'position':'static','top':'auto','bottom':'auto'
-   })
-   $('.flat').children('div').children('div:first-child').hide();
-   $('.flat').children('div').children('div:last-child').css('padding','0 0 50px')
-   $('.input_group').parent('div').css({'width':'100%','height':'auto'})
-   $('.input_group').css({'width':'100%','height':'auto'})
-   $('img').css('height','auto')
-   $('img').parent('div').css({
-     'position':'static',
-     'height':'auto',
-     'top':'auto'
-   })
-   $('.van-swipe__indicators').hide();
+  //   let input=document.getElementsByTagName('input');
+  //   console.log('***',input.length)
+  //  for(let x =0;x<input.length;x++){
+  //    document.getElementsByTagName('input')[x].style.width = '100%'
+  //  }
+  //  $('.linkway').parent('div').css('height','auto');
+  //  $('.flat').children('div').children('div').css({
+  //    'position':'static','top':'auto','bottom':'auto'
+  //  })
+  //  $('.flat').children('div').children('div:first-child').hide();
+  //  $('.flat').children('div').children('div:last-child').css('padding','0 0 50px')
+  //  $('.input_group').parent('div').css({'width':'100%','height':'auto'})
+  //  $('.input_group').css({'width':'100%','height':'auto'})
+  //  $('img').css('height','auto')
+  //  $('img').parent('div').css({
+  //    'position':'static',
+  //    'height':'auto',
+  //    'top':'auto'
+  //  })
+  //  $('.van-swipe__indicators').hide();
    
-    let w = $(window).width();
-   console.log('当前屏幕款第',w)
-   $('.lbt').css('width',w)
-   $('.van-swipe-item').css('width',w)
-=======
+  //   let w = $(window).width();
+  //  console.log('当前屏幕款第',w)
+  //  $('.lbt').css('width',w)
+  //  $('.van-swipe-item').css('width',w)
   //   }
   //   let input=document.getElementsByTagName('input');
   //   console.log('***',input.length)
@@ -238,10 +215,6 @@
 
 
 
-
-   
-
->>>>>>> a2be01bb519088a8d305754f355c2f282133095a
     // let slb = document.getElementsByClassName('full')[0].children;
     // if(document.getElementsByClassName('full')[0].children.length){
     //   for(let x =0; x<slb.length;x++){
