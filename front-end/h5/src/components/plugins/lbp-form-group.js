@@ -39,7 +39,7 @@ export default {
       lineHeight: this.lineHeight + 'em',
     }
     return (
-      <p class="input_group"><label for="name">{userName}</label><br></br>
+      <p class="input_group"><label for="name" style={{'paddingLeft':'5px'}}>{userName}</label><br></br>
       <input disabled={this.disabled} type={this.type}
         style={style}
         name={this.name}
@@ -47,7 +47,7 @@ export default {
         placeholder={this.placeholder1}
         autocomplete="off"
         data-type="lbp-form-input" // 点击[表单提交]按钮的时候,找到data-type为:lbp-form-input 的输入框，并将其值添加到formData,提交到后台
-      /><br></br><label for="phone">{phoneNum}</label><br></br>
+      /><br></br><label for="phone" style={{'paddingLeft':'5px'}}>{phoneNum}</label><br></br>
       <input disabled={this.disabled} type={this.type}
         style={style}
         name={this.name}
