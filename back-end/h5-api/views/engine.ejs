@@ -110,12 +110,8 @@
     .van-swipe__indicators{
       bottom: auto;
     }
-    .flat div div:nth-of-type(1){
-      display:none;
-    }
-    .flat div div:nth-of-type(2){
-      top:0!important;
-    }
+   
+ 
   </style>
 </head>
 <!-- <body onload="setDocFontSize(320)"> -->
@@ -204,23 +200,17 @@
    })
 
    //轮播图
-   let w = $(window).width();
-   console.log('当前屏幕款第',w)
-   $('.lbt').css('width',w)
-   $('.van-swipe-item').css('width',w)
-   let len= $('.van-swipe-item').length;
-   $('.van-swipe__track').css('width',w*len);
-   $('.van-swipe').css('width',w)
+  
  
 
 
 
-    let slb = document.getElementsByClassName('full')[0].children;
-    if(document.getElementsByClassName('full')[0].children.length){
-      for(let x =0; x<slb.length;x++){
-        document.getElementsByClassName('full')[0].children[x].style.width='100%'
-      }
-    }
+    //let slb = document.getElementsByClassName('full')[0].children;
+    //if(document.getElementsByClassName('full')[0].children.length){
+    //  for(let x =0; x<slb.length;x++){
+    //    document.getElementsByClassName('full')[0].children[x].style.width='100%'
+    //  }
+    //}
     // var mySwiper = new Swiper('.swiper-container', {
     //   // Optional parameters
     //   direction: 'vertical',
