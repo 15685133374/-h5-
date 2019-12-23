@@ -62,12 +62,12 @@
     // console.log('___',ss)
     for(i=0;i<t;i++){
       // ss.pages[0].elements[i].commonStyle.width = ss.pages[0].elements[i].commonStyle.width>300 ? wid : ss.pages[0].elements[i].commonStyle.width;
-      ss.pages[0].elements[i].commonStyle.width = ss.pages[0].elements[i].commonStyle.width * std
-      ss.pages[0].elements[i].commonStyle.top = ss.pages[0].elements[i].commonStyle.top * std
-      ss.pages[0].elements[i].commonStyle.bottom = ss.pages[0].elements[i].commonStyle.bottom * std
-      ss.pages[0].elements[i].commonStyle.fontSize = ss.pages[0].elements[i].commonStyle.fontSize * std
-      ss.pages[0].elements[i].commonStyle.height = ss.pages[0].elements[i].commonStyle.height * std
-      ss.pages[0].elements[i].commonStyle.left = ss.pages[0].elements[i].commonStyle.left * std
+      ss.pages[0].elements[i].commonStyle.width = ss.pages[0].elements[i].commonStyle.width * std >wid ? wid:ss.pages[0].elements[i].commonStyle.width * std
+      ss.pages[0].elements[i].commonStyle.top = ss.pages[0].elements[i].commonStyle.top * std >wid ? wid:ss.pages[0].elements[i].commonStyle.top * std
+      ss.pages[0].elements[i].commonStyle.bottom = ss.pages[0].elements[i].commonStyle.bottom * std > wid? wid:ss.pages[0].elements[i].commonStyle.bottom * std
+      ss.pages[0].elements[i].commonStyle.fontSize = ss.pages[0].elements[i].commonStyle.fontSize * std > wid ? wid:ss.pages[0].elements[i].commonStyle.fontSize * std
+      ss.pages[0].elements[i].commonStyle.height = ss.pages[0].elements[i].commonStyle.height * std >wid ? wid:ss.pages[0].elements[i].commonStyle.height * std 
+      ss.pages[0].elements[i].commonStyle.left = ss.pages[0].elements[i].commonStyle.left * std >wid ? wid: ss.pages[0].elements[i].commonStyle.left * std
       
     }
     window.__work = ss
