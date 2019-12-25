@@ -11,7 +11,7 @@ module.exports = {
   // strapi-hook-ejs: https://github.com/strapi/strapi/tree/master/packages/strapi-hook-ejs
   previewOne: async (ctx) => {
     const work = await strapi.services.work.findOne(ctx.params);
-    console.log('000000',work)
+    // console.log('000000',work)
     return ctx.render('engine', { work });
 
   },
@@ -40,13 +40,14 @@ module.exports = {
             uuidMap2Name[ele.uuid] = ele.pluginProps.aliasName;
           }
           if (ele.name === 'lbp-form-group') {
-            uuidMap2Name[ele.uuid] = ele.pluginProps.userName;
-            // uuidMap2Name[ele.uuid] = ele.pluginProps.phoneNum;
-            console.log('uuid____',ele.uuid)
-            console.log('____group_____',ele)
+            uuidMap2Name[ele.uuid-1] = ele.pluginProps.userName;
+            uuidMap2Name[ele.uuid +1] = ele.pluginProps.phoneNum;
+            // uuidMap2Name[ele.uuid] = ele.pluginProps.phoneNum
           }
         });
       });
+      console.log('________',work.pages)
+
       return uuidMap2Name;
     }
 

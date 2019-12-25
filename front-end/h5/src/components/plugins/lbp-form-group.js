@@ -119,7 +119,9 @@ export default {
            // inputs.forEach(function (input) {
            //   return formData.append(cur_uuid, input.value);
            // });
-           formData.append( uuid, datas);
+           formData.append( uuid -1, val1);
+           formData.append( uuid +1, val2);
+           console.log('*****',val1,val2)
            var req = new XMLHttpRequest();
  
            req.onreadystatechange = function () {
