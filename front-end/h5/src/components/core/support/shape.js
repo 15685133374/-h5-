@@ -18,7 +18,7 @@ export default {
   mixins: [animationMixin],
   props: ['defaultPosition', 'active', 'handleMousedownProp', 'handleElementMoveProp', 'handlePointMoveProp', 'handleElementMouseUpProp', 'handlePointMouseUpProp', 'element'],
   computed: {
-    position () {
+    position() {
       return { ...this.defaultPosition }
     }
   },
@@ -26,8 +26,8 @@ export default {
     /**
      * 通过方位计算样式，主要是 top、left、鼠标样式
      */
-    getPointStyle (point, isWrapElement = true) {
-      
+    getPointStyle(point, isWrapElement = true) {
+
       const pos = this.position
       const top = pos.top // !#zh 减4是为了让元素能够处于 border 的中间
       const left = pos.left
@@ -39,12 +39,13 @@ export default {
       let hasR = /r/.test(point)
       let newLeft = 0
       let newTop = 0
-      let cans = document.getElementsByClassName('edit-mode')[0].clientHeight;
-      if(pos.top +pos.height> cans){
-        document.getElementsByClassName('edit-mode')[0].style.height=pos.top + pos.height + 'px'
-        document.getElementsByClassName('canvas-wrapper')[0].style.height = pos.top + pos.height + 'px'
-      }else if(pos.top + pos.height<= 566){
-        document.getElementsByClassName('edit-mode')[0].style.height = 566 +'px';
+      let cans = $('.edit-mode').height();
+      if (pos.top + pos.height > cans) {
+        $('.edit-mode').height(pos.top + pos.height + 'px');
+        $('.canvas-wrapper').height(pos.top + pos.height + 'px');
+      } else if (pos.top + pos.height <= 566) {
+        $('.edit-mode').height(566 + 'px');
+        $('.canvas-wrapper').height(566 + 'px');
       }
       if (point.length === 2) {
         newLeft = hasL ? 0 : width
@@ -73,11 +74,11 @@ export default {
     /**
      * !#zh 主要目的是：阻止冒泡
      */
-    handleWrapperClick (e) {
+    handleWrapperClick(e) {
       // e.stopPropagation()
       // e.preventDefault()
     },
-    mousedownForMark (point, downEvent) {
+    mousedownForMark(point, downEvent) {
       downEvent.stopPropagation()
       downEvent.preventDefault() // Let's stop this event.
       const pos = { ...this.position }
@@ -118,7 +119,7 @@ export default {
      *
      * @param {mouseEvent} e
      */
-    mousedownForElement (e) {
+    mousedownForElement(e) {
       const pos = { ...this.position }
       let startY = e.clientY
       let startX = e.clientX
@@ -147,14 +148,14 @@ export default {
       // TODO add comment
       return true
     },
-    handleMousedown (e) {
+    handleMousedown(e) {
       if (this.handleMousedownProp) {
         this.handleMousedownProp()
         this.mousedownForElement(e, this.element)
       }
     }
   },
-  render (h) {
+  render(h) {
     return (
       <div
         onClick={this.handleWrapperClick}

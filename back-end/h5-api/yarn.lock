@@ -1427,6 +1427,11 @@ big.js@^5.2.2:
   resolved "https://registry.npm.taobao.org/big.js/download/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
   integrity sha1-ZfCvOC9Xi83HQr2cKB6cstd2gyg=
 
+bignumber.js@7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-7.2.1.tgz#80c048759d826800807c4bfd521e50edbba57a5f"
+  integrity sha512-S4XzBk5sMB+Rcb/LNcpzXr57VRTxgAvaAEDAl1AwRx27j00hT84O6OkteE7u8UB3NuaaygCRrEpqox4uDOrbdQ==
+
 bin-build@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/bin-build/download/bin-build-3.0.0.tgz#c5780a25a8a9f966d8244217e6c1f5082a143861"
@@ -5380,7 +5385,7 @@ knex@^0.16.5:
     uuid "^3.3.2"
     v8flags "^3.1.2"
 
-knex@latest:
+knex@^0.19.0, knex@latest:
   version "0.19.5"
   resolved "https://registry.yarnpkg.com/knex/-/knex-0.19.5.tgz#3597ebecf88a5942f18c3e6d91af53bda59eeb5d"
   integrity sha512-Hy258avCVircQq+oj3WBqPzl8jDIte438Qlq+8pt1i/TyLYVA4zPh2uKc7Bx0t+qOpa6D42HJ2jjtl2vagzilw==
@@ -5444,10 +5449,10 @@ koa-convert@^1.2.0:
     co "^4.6.0"
     koa-compose "^3.0.0"
 
-koa-ejs@^4.1.0:
-  version "4.2.0"
-  resolved "https://registry.npm.taobao.org/koa-ejs/download/koa-ejs-4.2.0.tgz#375c38759411e828cf54541a908d9768a3ea65f4"
-  integrity sha1-N1w4dZQR6CjPVFQakI2XaKPqZfQ=
+koa-ejs@^4.2.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/koa-ejs/-/koa-ejs-4.3.0.tgz#06d8459b1d52f4c41b413d8778f71e1ab2ec5009"
+  integrity sha512-KK1B1YEeq8TOt7hrHwohfHxH03ZqsdhQWeFjmvcWk3arVI/uQOyE4FHQVlg0Ud9eXxlgUfkYqA2MJhfK4ADkAw==
   dependencies:
     debug "^2.6.1"
     ejs "^2.6.1"
@@ -6278,6 +6283,16 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.npm.taobao.org/mute-stream/download/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
+
+mysql@^2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/mysql/-/mysql-2.17.1.tgz#62bba4a039a9b2f73638cd1652ce50fc6f682899"
+  integrity sha512-7vMqHQ673SAk5C8fOzTG2LpPcf3bNt0oL3sFpxPEEFp1mdlDcrLK0On7z8ZYKaaHrHwNcQ/MTUz7/oobZ2OyyA==
+  dependencies:
+    bignumber.js "7.2.1"
+    readable-stream "2.3.6"
+    safe-buffer "5.1.2"
+    sqlstring "2.3.1"
 
 mz@^2.6.0, mz@^2.7.0:
   version "2.7.0"
@@ -8220,10 +8235,10 @@ read-pkg@^2.0.0:
     normalize-package-data "^2.3.2"
     path-type "^2.0.0"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.0, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
+"readable-stream@1 || 2", readable-stream@2.3.6, readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.0, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.6"
-  resolved "https://registry.npm.taobao.org/readable-stream/download/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
-  integrity sha1-sRwn2IuP8fvgcGQ8+UsMea4bCq8=
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
+  integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.3"
@@ -9134,6 +9149,11 @@ sqlite3@latest:
     node-pre-gyp "^0.11.0"
     request "^2.87.0"
 
+sqlstring@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/sqlstring/-/sqlstring-2.3.1.tgz#475393ff9e91479aea62dcaf0ca3d14983a7fb40"
+  integrity sha1-R1OT/56RR5rqYtyvDKPRSYOn+0A=
+
 squeak@^1.0.0:
   version "1.3.0"
   resolved "https://registry.npm.taobao.org/squeak/download/squeak-1.3.0.tgz#33045037b64388b567674b84322a6521073916c3"
@@ -9381,13 +9401,13 @@ strapi-hook-bookshelf@3.0.0-beta.13:
     strapi-hook-knex "3.0.0-beta.13"
     strapi-utils "3.0.0-beta.13"
 
-strapi-hook-ejs@3.0.0-alpha.13:
-  version "3.0.0-alpha.13"
-  resolved "https://registry.yarnpkg.com/strapi-hook-ejs/-/strapi-hook-ejs-3.0.0-alpha.13.tgz#0c5829892520e397af6d7d58e17d0503d60a0024"
-  integrity sha512-/F/oqi7kgngzfkLShH/QgDzI81Z0tR1AQ/essHtjvycsyDWY11IsSzCUgj2uByj2VRRirxAjI769tMqWJ/CMcw==
+strapi-hook-ejs@^3.0.0-alpha.26.2:
+  version "3.0.0-beta.18.3"
+  resolved "https://registry.yarnpkg.com/strapi-hook-ejs/-/strapi-hook-ejs-3.0.0-beta.18.3.tgz#19e5c2004454da0bf7a39b2ef6697bf597d27259"
+  integrity sha512-dy8N0aAN8nM0lqcYhmZv6piG49NVxZ+8d+egsHzf2wRRZyLyfnXa8i5JBdfctwJfgZXfQPreLb60qUnuhVdbOg==
   dependencies:
     co "^4.6.0"
-    koa-ejs "^4.1.0"
+    koa-ejs "^4.2.0"
 
 strapi-hook-knex@3.0.0-beta.13:
   version "3.0.0-beta.13"
@@ -9395,6 +9415,14 @@ strapi-hook-knex@3.0.0-beta.13:
   integrity sha1-9kOSv9ZMAFTDCSGHO627ywBysYM=
   dependencies:
     knex "^0.16.5"
+    lodash "^4.17.11"
+
+strapi-hook-knex@^3.0.0-alpha.26.2:
+  version "3.0.0-beta.17.8"
+  resolved "https://registry.yarnpkg.com/strapi-hook-knex/-/strapi-hook-knex-3.0.0-beta.17.8.tgz#95232a12f723caa3ce2e9ba4aeaf465ca6753293"
+  integrity sha512-44ZJZpbB7WNUYCh5jOnQz7WlVQnhwTJmy2Xh0FpGjpBS12RWqkioFqKbdi0wwhiq2q+Xp5VWVFXvVeBEbh0aQw==
+  dependencies:
+    knex "^0.19.0"
     lodash "^4.17.11"
 
 strapi-plugin-content-manager@3.0.0-beta.13:

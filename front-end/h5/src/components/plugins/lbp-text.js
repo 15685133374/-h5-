@@ -14,7 +14,8 @@ export default {
       backgroundColor: this.backgroundColor || '#ffffff',
       lineHeight: `${this.lineHeight}em`,
       border: `${this.borderWidth}px solid ${this.borderColor}`,
-      borderRadius: `${this.borderRadius}px`
+      borderRadius: `${this.borderRadius}px`,
+      height:'100%'
     }
     const pureText = <div domPropsInnerHTML={this.text} class="ql-editor ql-container"></div>
     return (

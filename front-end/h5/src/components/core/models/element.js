@@ -6,11 +6,11 @@ const cloneObj = (value) => JSON.parse(JSON.stringify(value))
 // const scrW = document.getElementsByClassName('edit-mode')[0].clientWidth
 
 const defaultStyle = {
-  top:100,
-  bottom:100,
+  top: 200,
+  bottom: 100,
   left: 0,
   width: 400,
-  height: 300,
+  height: 240,
   zindex: 1,
   textAlign: 'center',
   color: '#000000',
@@ -19,9 +19,10 @@ const defaultStyle = {
 }
 
 class Element {
-  constructor (ele) {
+  constructor(ele) {
     this.name = ele.name
     this.uuid = ele.uuid || +new Date()
+
     /**
      * #!zh:
      * 之前版本代码：https://github.com/ly525/luban-h5/blob/a7875cbc73c0d18bc2459985ca3ce1d4dc44f141/front-end/h5/src/components/core/models/element.js#L21
@@ -35,12 +36,24 @@ class Element {
      */
     this.pluginProps = (typeof ele.pluginProps === 'object' && cloneObj({ ...ele.pluginProps, uuid: this.uuid })) || this.getDefaultPluginProps(ele.editorConfig || {})
     this.commonStyle = (typeof ele.commonStyle === 'object' && cloneObj(ele.commonStyle)) || { ...defaultStyle, zindex: ele.zindex }
+
+    if (this.name == 'lbp-form-input' || this.name == 'lbp-button' || this.name == 'lbp-text' || this.name == 'lbp-form-button') {
+      this.commonStyle.height = 50
+    }
+    if (this.name == 'lbp-form-group' || this.name == 'lbp-form-checkbox-group' || this.name == 'lbp-form-radio-group') {
+      this.commonStyle.height = 130
+    }
+    if (this.name == 'lbp-linkWay') {
+      this.commonStyle.width = 0;
+      this.commonStyle.height = 0;
+
+    }
     this.events = []
     this.animations = ele.animations || []
   }
 
   // init prop of plugin
-  getDefaultPluginProps (propsConfig) {
+  getDefaultPluginProps(propsConfig) {
     const pluginProps = {
       uuid: this.uuid
     }
@@ -70,13 +83,14 @@ class Element {
   //   return pluginProps
   // }
 
-  getStyle ({ position = 'static', isRem = false } = {}) {
+  getStyle({ position = 'static', isRem = false } = {}) {
     if (this.name === 'lbp-background') {
       return {
         width: '100%',
         height: '100%'
       }
     }
+
     const pluginProps = this.pluginProps
     const commonStyle = this.commonStyle
     let style = {
@@ -94,28 +108,28 @@ class Element {
     return style
   }
 
-  getProps ({ mode = 'edit' } = {}) {
+  getProps({ mode = 'edit' } = {}) {
     return {
       ...this.pluginProps,
       disabled: disabledPluginsForEditMode.includes(this.name) && mode === 'edit'
     }
   }
 
-  getClass () {
+  getClass() {
 
   }
 
-  getData () {
+  getData() {
 
   }
 
-  getAttrs () {
+  getAttrs() {
     return {
       'data-uuid': this.uuid
     }
   }
 
-  getPreviewData ({ position = 'static', isRem = false, mode = 'preview' } = {}) {
+  getPreviewData({ position = 'static', isRem = false, mode = 'preview' } = {}) {
     const style = this.getStyle({ position })
     const data = {
       style,
@@ -125,7 +139,7 @@ class Element {
     return data
   }
 
-  clone ({ zindex = this.commonStyle.zindex + 1 } = {}) {
+  clone({ zindex = this.commonStyle.zindex + 1 } = {}) {
     return new Element({
       zindex,
       name: this.name,

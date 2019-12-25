@@ -9,7 +9,7 @@
     "deploy": "rm -rf dist && npm run build && ./deploy.sh",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "editor:build": "PAGE=EDITOR vue-cli-service build",
+    "editor:build": "cross-env PAGE=EDITOR vue-cli-service build",
     "engine:build": "cross-env PAGE=ENGINE vue-cli-service build --target lib --name engine ./src/engine-entry.js"
   },
   "dependencies": {

@@ -39,6 +39,12 @@ module.exports = {
           if (ele.name === 'lbp-form-radio-group') {
             uuidMap2Name[ele.uuid] = ele.pluginProps.aliasName;
           }
+          if (ele.name === 'lbp-form-group') {
+            uuidMap2Name[ele.uuid] = ele.pluginProps.userName;
+            // uuidMap2Name[ele.uuid] = ele.pluginProps.phoneNum;
+            console.log('uuid____',ele.uuid)
+            console.log('____group_____',ele)
+          }
         });
       });
       return uuidMap2Name;
